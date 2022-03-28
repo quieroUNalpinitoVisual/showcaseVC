@@ -65,7 +65,7 @@ Look at [this reference](https://michaelbach.de/ot/mot-breathingSquare/) for an 
 {{< details title="p5-global-iframe markdown" open=false >}}
 ```js
 {{</* p5-global-iframe id="breath" width="625" height="625" >}}
-  // Coded as `global mode` of [this](https://github.com/quieroUNalpinito/Cognitive/blob/gh-pages/sketches/rotateSquare.js)
+  // Coded as `global mode` of [this](https://github.com/quieroUNalpinitoVisual/Cognitive/blob/gh-pages/sketches/rotateSquare.js)
   let angle = 0;
   let speed = 0.06;
 

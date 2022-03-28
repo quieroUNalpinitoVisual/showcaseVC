@@ -1,4 +1,4 @@
-baseURL = "https://quierounalpinitovisual.github.io/showcasevcvc"
+baseURL = "https://quieroUNalpinitoVisualvisual.github.io/showcasevcvc"
 languageCode = "en-us"
 title = "showcasevc Template"
 theme = 'book'
@@ -22,7 +22,7 @@ enableGitInfo = true
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo = 'https://github.com/quieroUNalpinitoVisual/showcasevcvc/'
+  BookRepo = 'https://github.com/quieroUNalpinitoVisualVisual/showcasevcvc/'
 
   # Configure the date format used on the pages
   # - In git information

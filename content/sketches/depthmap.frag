@@ -1,14 +1,14 @@
 precision mediump float;
 
 // The fragment eye depth is obtained by solving z_e in terms z_n from here:
-// http://quieroUNalpinito.github.io/Transformations/#/6/14 and:
-// http://quieroUNalpinito.github.io/Transformations/#/6/15
+// http://quieroUNalpinitoVisual.github.io/Transformations/#/6/14 and:
+// http://quieroUNalpinitoVisual.github.io/Transformations/#/6/15
 // yielding to: z_e = (2 * near * far) / (z_n * (far - near) - far - near) (eq1)
 
 uniform float near;
 uniform float far;
 
-// remapping of a value among 2 ranges: http://quieroUNalpinito.github.io/Transformations/#/7/1
+// remapping of a value among 2 ranges: http://quieroUNalpinitoVisual.github.io/Transformations/#/7/1
 // same as: https://processing.org/reference/map_.html
 float map(float value, float start1, float stop1, float start2, float stop2) {
   return start2 + (value - start1) * (stop2 - start2) / (stop1 - start1);
