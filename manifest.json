@@ -1,14 +1,14 @@
 {
   "name": "showcasevc Template",
   "short_name": "showcasevc Template",
-  "start_url": "/showcasevcvc/",
-  "scope": "/showcasevcvc/",
+  "start_url": "/showcasevc/",
+  "scope": "/showcasevc/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/showcasevcvc/favicon.svg",
+      "src": "/showcasevc/favicon.svg",
       "sizes": "512x512"
     }
   ]
