@@ -1,4 +1,4 @@
-// took from here: https://github.com/VisualComputing/Cognitive/blob/gh-pages/sketches/scintillating_grid.js
+// took from here: https://github.com/quieroUNalpinito/Cognitive/blob/gh-pages/sketches/scintillating_grid.js
 
 new p5((p) => {
   p.setup = function () {

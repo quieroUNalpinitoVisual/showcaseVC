@@ -41,7 +41,7 @@ Look at [this](https://en.wikipedia.org/wiki/Lilac_chaser) introductory referenc
 {{< details title="p5-instance-div markdown" open=false >}}
 ```js
 {{</* p5-instance-div id="lilac-chaser" >}}
-  // Adapted from [this](https://github.com/VisualComputing/Cognitive/blob/gh-pages/sketches/lilacChaser.js)
+  // Adapted from [this](https://github.com/quieroUNalpinito/Cognitive/blob/gh-pages/sketches/lilacChaser.js)
   let jump = 0;
   let count = 0;
 
