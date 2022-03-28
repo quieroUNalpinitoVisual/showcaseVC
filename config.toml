@@ -1,4 +1,6 @@
+
 baseURL = "https://quieroUNalpinitovisual.github.io/showcasevc"
+
 languageCode = "en-us"
 title = "Showcase Template"
 theme = 'book'
