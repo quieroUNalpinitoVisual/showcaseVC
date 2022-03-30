@@ -13,8 +13,21 @@
 <--->
 
 ## Daniel Arturo Moreno
-Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
-stringit, frustra Saturnius uteroque inter!
+Estudiante de Ingenieria de Sistemas y Computacion en la Universidad Nacional de Colombia.
+
+#### Intereses 🤔 
+
+* **Académicos 📘**
+    * Desarrollo Web 
+    * Arduino
+    * Linux
+    * Procesamiento de imágenes
+    * Programación Competitiva y Algoritmia 
+
+* **Pasatiempos 🎮🎸**
+    * Geoguessr
+    * RPGs
+    * Música
 
 <--->
 
