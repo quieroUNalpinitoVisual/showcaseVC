@@ -2,11 +2,12 @@
 
 {{< columns >}}
 ## Nicholson Stive Ochoa
-### Intereses academicos
+#### Intereses 🤔 
+
+* **Académicos 📘**
 > * Me interesa el desarrollo web
 > * La inteligencia artificial 
-
-### Pasatiempos
+* **Pasatiempos 🎮🎸**
 >* Ver anime y series
 >* Hacer ejercicio
 
@@ -33,5 +34,17 @@ Estudiante de Ingenieria de Sistemas y Computacion en la Universidad Nacional de
 
 ## Johan Sebastian Romero
 Estudiante de Ingenieria de Sistemas y Computacion en la Universidad Nacional de Colombia.
-Interesado en el desarrollo de FrontEnd web y el procesamiento de imágenes.
+
+#### Intereses 🤔 
+
+* **Académicos 📘**
+    * Desarrollo Web 
+    * Procesamiento de imagenes
+    * Arquitectura de software
+
+* **Pasatiempos 🎮🎸**
+    * Videojuegos (Wow)
+    * Motociclismo off road
+    * Anime
+
 {{< /columns >}}
