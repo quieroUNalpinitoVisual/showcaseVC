@@ -2,11 +2,14 @@
 
 {{< columns >}}
 ## Nicholson Stive Ochoa
+Estudiante de Ingenieria de Sistemas y Computacion en la Universidad Nacional de Colombia.
+
 #### Intereses 🤔 
 
 * **Académicos 📘**
-> * Me interesa el desarrollo web
-> * La inteligencia artificial 
+> * Desarrollo web
+> * Inteligencia artificial
+> * Desarrollo en multiplataforma 
 * **Pasatiempos 🎮🎸**
 >* Ver anime y series
 >* Hacer ejercicio
