@@ -38,6 +38,7 @@ new p5((p) => {
     p.translate(-w/2,-h/2);
 
     for(let y = 0; y < rows-1; y++){
+      p.fill('rgba(0,'+255+',0, 0.25)');
       p.beginShape(p.TRIANGLE_STRIP);
       for(let x = 0; x < cols; x++){
         p.vertex(x*scl, y*scl, terrain[x][y]);
