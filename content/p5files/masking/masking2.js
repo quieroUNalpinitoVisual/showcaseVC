@@ -132,10 +132,57 @@ new p5((p) => {
     }
 
     p.calcborders = function(){
-        let prebord = img;
-        prebord.filter(p.GRAY);
+        let prebord = p.createImage(400,400);
+        for (let i = 0; i < 400; i++) {
+            for (let j = 0; j < 400; j++) {
+                let g = (p.red(img.get(i,j))+p.green(img.get(i,j))+p.blue(img.get(i,j)))/3;
+                prebord.set(i,j,g);
+            }
+        }
+        let gradx = p.zeroes([400,400]);
+        let grady = p.zeroes([400,400]);
+        for (let i = 0; i < 400-1; i++) {
+            for (let j = 0; j < 400-1; j++) {
+                gradx[i][j] = p.red(img.get(i+1,j)) - p.red(img.get(i,j));
+                grady[i][j] = p.red(img.get(i,j+1)) - p.red(img.get(i,j));
+            }
+        }
+        let gradmag = p.zeroes([400,400]);
+        let gradang = p.zeroes([400,400]);
+        for (let i = 0; i < 400-1; i++) {
+            for (let j = 0; j < 400-1; j++) {
+                gradmag[i][j]= p.abs(p.sqrt((gradx[i][j]*gradx[i][j])+(grady[i][j]*grady[i][j])));
+                gradang[i][j]= p.atan2(grady[i][j],gradx[i][j]);
+            }
+        } 
+        let borders = p.zeroes([400,400]);
+        for (let i = 1; i < 400-1; i++) {
+            for (let j = 1; j < 400-1; j++) {
+                if (gradang[i][j] > 0 && gradang[i + 1][j] < 0) {
+                    borders[i][j] = 1;
+                } else if (gradang[i][j] < 0 && gradang[i + 1][j] > 0) {
+                    borders[i][j] = 1;
+                } else if (gradang[i][j] > 0 && gradang[i][j + 1] < 0) {
+                    borders[i][j] = 1;
+                } else if (gradang[i][j] < 0 && gradang[i][j + 1] > 0) {
+                    borders[i][j] = 1;
+                }
+            }
+        }
+        let postbord = p.createImage(400,400);
+        for (let i = 0; i < 400; i++) {
+            for (let j = 0; j < 400; j++) {
+                if (borders[i][j] == 1) {
+                    postbord.set(i, j, p.color(0,0,0));
+                } else {
+                    postbord.set(i, j, p.color(255,255,255));
+                }
+            }
+        }
+        postbord.updatePixels();
         console.log(prebord);
-        bord = prebord;
+        console.log(postbord);
+        bord = postbord;
         p.image(bord, 0, 1050,400,400);
     }
 
@@ -164,6 +211,16 @@ new p5((p) => {
             p.line(xPos, y1, xPos, y2);
         }
         p.pop();
+    }
+
+    p.zeroes = function(dimensions) {
+        var array = [];
+    
+        for (var i = 0; i < dimensions[0]; ++i) {
+            array.push(dimensions.length == 1 ? 0 : p.zeroes(dimensions.slice(1)));
+        }
+    
+        return array;
     }
 
   }, "masking2");
