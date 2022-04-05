@@ -31,8 +31,8 @@ new p5((p) => {
       }
       yoff += 0.2;
     }
-    p.background(0);
-    p.stroke(255);
+    p.background(p.color(242, 136, 240));
+    p.stroke(150);
     p.noFill();
 
     p.rotateX(p.PI/3);
