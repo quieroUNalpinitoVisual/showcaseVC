@@ -11,7 +11,7 @@ new p5((p) => {
 
     p.setup = function () {
         p.pixelDensity(1);
-        myCanvas = p.createCanvas(400,1500);
+        myCanvas = p.createCanvas(400,1100);
         img.resize(400,400);
         baseimg.resize(400,400);
         img.loadPixels();
@@ -40,7 +40,7 @@ new p5((p) => {
         bord.loadPixels();
         p.image(bord, 0, 650,400,400);
         buttonbor = p.createButton('borders');
-        buttonbor.position(0,1500);
+        buttonbor.position(0,1100);
         buttonbor.mousePressed(p.calcborders);
     };
 
@@ -83,7 +83,6 @@ new p5((p) => {
                 rtotal = p.constrain(rtotal, 0, 255);
                 gtotal = p.constrain(gtotal, 0, 255);
                 btotal = p.constrain(btotal, 0, 255);
-                //console.log(rtotal+' '+gtotal+' '+btotal);
                 let c = p.color(rtotal,gtotal,btotal);
                 postconv.set(i,j,c);
             }
@@ -93,7 +92,7 @@ new p5((p) => {
         img.updatePixels();
         p.square(0,200,400);
         p.drawimg(img,0,200);
-        //p.histogram();
+        console.log('convolucion realizada! :D');
     }
 
     p.matrix1 = function(){
@@ -139,6 +138,22 @@ new p5((p) => {
                 prebord.set(i,j,g);
             }
         }
+        let med = [0,0,0,0,0,0,0,0,0];
+        for (let i = 1; i < 400-1; i++) {
+            for (let j = 1; j < 400-1; j++) {
+                med[0] = prebord.get(i - 1,j - 1);
+                med[1] = prebord.get(i,j - 1);
+                med[2] = prebord.get(i + 1,j - 1);
+                med[3] = prebord.get(i - 1,j);
+                med[4] = prebord.get(i,j);
+                med[5] = prebord.get(i + 1,j);
+                med[6] = prebord.get(i - 1,j + 1);
+                med[7] = prebord.get(i,j + 1);
+                med[8] = prebord.get(i + 1,j + 1);
+                med.sort();
+                prebord.set(i,j,med[4]);
+            }
+        }
         let gradx = p.zeroes([400,400]);
         let grady = p.zeroes([400,400]);
         for (let i = 0; i < 400-1; i++) {
@@ -169,13 +184,25 @@ new p5((p) => {
                 }
             }
         }
+        for (let i = 1; i < 400-1; i++) {
+            for (let j = 1; j < 400-1; j++) {
+                if( borders[i][j-1] == 0 &&
+                    borders[i-1][j] == 0 &&
+                    borders[i+1][j] == 0 &&
+                    borders[i][j+1] == 0 ){
+                        borders[i][j] = 0;
+                }
+            }
+        }
         let postbord = p.createImage(400,400);
         for (let i = 0; i < 400; i++) {
             for (let j = 0; j < 400; j++) {
                 if (borders[i][j] == 1) {
-                    postbord.set(i, j, p.color(0,0,0));
-                } else {
+                    //postbord.set(i, j, p.color(0,0,0));
                     postbord.set(i, j, p.color(255,255,255));
+                } else {
+                    //postbord.set(i, j, p.color(255,255,255));
+                    postbord.set(i, j, p.color(0,0,0));
                 }
             }
         }
@@ -183,43 +210,14 @@ new p5((p) => {
         console.log(prebord);
         console.log(postbord);
         bord = postbord;
-        p.image(bord, 0, 1050,400,400);
-    }
-
-    p.histogram = function(){
-        let histogram;
-        for (var x = 0; x < img.width; x+=5) {
-            for (var y = 0; y < img.height; y+=5) {
-              var loc = (x + y * img.width) * 4;
-              var h = pixels[loc];
-              var s = pixels[loc + 1];
-              var l = pixels[loc + 2];
-              var a = pixels[loc + 3];
-              b = p.int(l);
-              histogram[b]++
-            }
-        }
-        p.stroke(300,100,80);
-        p.push();
-        p.translate(10,0);
-        for (x = 0; x <= maxRange; x++) {
-            index = histogram[x];
-        
-            y1=p.int(p.map(index, 0, p.max(histogram), height, height-200));
-                y2 = height
-            xPos = p.map(x,0,maxRange,0, width-20)
-            p.line(xPos, y1, xPos, y2);
-        }
-        p.pop();
+        p.image(bord, 0, 650,400,400);
     }
 
     p.zeroes = function(dimensions) {
         var array = [];
-    
         for (var i = 0; i < dimensions[0]; ++i) {
             array.push(dimensions.length == 1 ? 0 : p.zeroes(dimensions.slice(1)));
         }
-    
         return array;
     }
 
