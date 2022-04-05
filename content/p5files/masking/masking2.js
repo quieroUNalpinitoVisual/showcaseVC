@@ -139,19 +139,21 @@ new p5((p) => {
             }
         }
         let med = [0,0,0,0,0,0,0,0,0];
-        for (let i = 1; i < 400-1; i++) {
-            for (let j = 1; j < 400-1; j++) {
-                med[0] = prebord.get(i - 1,j - 1);
-                med[1] = prebord.get(i,j - 1);
-                med[2] = prebord.get(i + 1,j - 1);
-                med[3] = prebord.get(i - 1,j);
-                med[4] = prebord.get(i,j);
-                med[5] = prebord.get(i + 1,j);
-                med[6] = prebord.get(i - 1,j + 1);
-                med[7] = prebord.get(i,j + 1);
-                med[8] = prebord.get(i + 1,j + 1);
-                med.sort();
-                prebord.set(i,j,med[4]);
+        for (let r = 0; r < 3; r++) {
+            for (let i = 1; i < 400-1; i++) {
+                for (let j = 1; j < 400-1; j++) {
+                    med[0] = prebord.get(i - 1,j - 1);
+                    med[1] = prebord.get(i,j - 1);
+                    med[2] = prebord.get(i + 1,j - 1);
+                    med[3] = prebord.get(i - 1,j);
+                    med[4] = prebord.get(i,j);
+                    med[5] = prebord.get(i + 1,j);
+                    med[6] = prebord.get(i - 1,j + 1);
+                    med[7] = prebord.get(i,j + 1);
+                    med[8] = prebord.get(i + 1,j + 1);
+                    med.sort();
+                    prebord.set(i,j,med[4]);
+                }
             }
         }
         let gradx = p.zeroes([400,400]);
