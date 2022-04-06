@@ -1,0 +1,62 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Masking Results #  Lo primero que se realizó fue programar la función que permitirá la convolución de un kernel sobre una imagen de acuerdo con lo encontrado en wikipedia
+ Expand ↕  Wiki pseudocode #  for each image row in input image: for each pixel in image row: set accumulator to zero for each kernel row in kernel: for each element in kernel row: if element position corresponding* to pixel position then multiply element value corresponding* to pixel value add result to accumulator endif set output image pixel to accumulator     la implementación concreta es la siguiente"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Masking Results #  Lo primero que se realizó fue programar la función que permitirá la convolución de un kernel sobre una imagen de acuerdo con lo encontrado en wikipedia
+ Expand ↕  Wiki pseudocode #  for each image row in input image: for each pixel in image row: set accumulator to zero for each kernel row in kernel: for each element in kernel row: if element position corresponding* to pixel position then multiply element value corresponding* to pixel value add result to accumulator endif set output image pixel to accumulator     la implementación concreta es la siguiente"><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/masking/maskingRes/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-04-05T19:41:05-05:00"><title>Masking Res | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
+<script defer src=/showcasevc/en.search.min.3c2cb3a9018f6c3c2dff891306d49ba6ffff2375c82833bb88fdf7d72727e816.js integrity="sha256-PCyzqQGPbDwt/4kTBtSbpv//I3XIKDO7iP331ycn6BY=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcasevc/><span>quieroUNalpinitoVisual</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-9765ec9f2fa63ff0746715996222150b class=toggle checked>
+<label for=section-9765ec9f2fa63ff0746715996222150b class="flex justify-between"><a href=/showcasevc/docs/shortcodes/masking/>Masking</a></label><ul><li><a href=/showcasevc/docs/shortcodes/masking/maskingLab/>Masking Lab</a></li><li><a href=/showcasevc/docs/shortcodes/masking/maskingRes/ class=active>Masking Res</a></li></ul></li><li><a href=/showcasevc/docs/shortcodes/members/>Members</a></li><li><input type=checkbox id=section-d95dc5d36ab28c1f4c64829f0b016347 class=toggle>
+<label for=section-d95dc5d36ab28c1f4c64829f0b016347 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/terrain/>Terrain</a></label><ul><li><a href=/showcasevc/docs/shortcodes/terrain/terrain1/>Terrain1</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcasevc/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Masking Res</strong>
+<label for=toc-control><img src=/showcasevc/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#masking-results>Masking Results</a></li></ul></nav></aside></header><article class=markdown><h1 id=masking-results>Masking Results
+<a class=anchor href=#masking-results>#</a></h1><p>Lo primero que se realizó fue programar la función que permitirá la convolución de un kernel sobre una imagen de acuerdo con lo encontrado en <a href=https://en.wikipedia.org/wiki/Kernel_%28image_processing%29>wikipedia</a></p><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><h3 id=wiki-pseudocode>Wiki pseudocode
+<a class=anchor href=#wiki-pseudocode>#</a></h3><pre><code>for each image row in input image:
+    for each pixel in image row:
+        set accumulator to zero
+        for each kernel row in kernel:
+            for each element in kernel row:
+                if element position  corresponding* to pixel position then
+                    multiply element value  corresponding* to pixel value
+                    add result to accumulator
+             endif
+        set output image pixel to accumulator
+</code></pre></div></label></div><p>la implementación concreta es la siguiente</p><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><h3 id=p5-code>p5 code
+<a class=anchor href=#p5-code>#</a></h3><pre><code>p.convolute = function (matrix){
+    img.loadPixels();
+    let rtotal = 0.0;
+    let gtotal = 0.0;
+    let btotal = 0.0;
+    let postconv = p.createImage(400,400);
+    for (let i = 1; i &lt; 399; i++){
+        for (let j = 1; j &lt; 399; j++){
+            rtotal = 0.0;
+            gtotal = 0.0;
+            btotal = 0.0;
+            for (let k = -1; k &lt;= 1; k++){
+                for (let l = -1; l &lt;= 1; l++){
+                    let xpos = i+k;
+                    let ypos = j+l;
+                    let red = p.red(img.get(xpos,ypos));
+                    let green = p.blue(img.get(xpos,ypos));
+                    let blue = p.green(img.get(xpos,ypos));
+                    rtotal += red * matrix[k+1][l+1];
+                    gtotal += green * matrix[k+1][l+1];
+                    btotal += blue * matrix[k+1][l+1];
+                }
+            }
+            rtotal = p.constrain(rtotal, 0, 255);
+            gtotal = p.constrain(gtotal, 0, 255);
+            btotal = p.constrain(btotal, 0, 255);
+            let c = p.color(rtotal,gtotal,btotal);
+            postconv.set(i,j,c);
+        }
+    }
+    postconv.updatePixels();
+    img = postconv;
+    img.updatePixels();
+    p.square(0,200,400);
+    p.drawimg(img,0,200);
+    console.log('convolucion realizada! :D');
+}
+</code></pre></div></label></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/1b600faaf143f6e145a5ca79d8701ad6d3731a02 title="Last modified by jsromero98 | April 6, 2022" target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
+<span>April 6, 2022</span></a></div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#masking-results>Masking Results</a></li></ul></nav></div></aside></main></body></html>
