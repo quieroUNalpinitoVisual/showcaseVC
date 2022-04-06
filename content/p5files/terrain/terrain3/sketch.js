@@ -1,8 +1,8 @@
 let terrain = [];
 var cols, rows;
-var scl = 20;
-var w = 1200;
-var h = 1200;
+var scl = 10;
+var w = 1560;
+var h = 1560;
 cols = w/scl;
 rows = h/scl;
 var flying = 0;
@@ -11,8 +11,8 @@ let ctx;
 function setup() {
   createCanvas (600, 600, WEBGL);
   angleMode(DEGREES);
-  colorMode(HSB);
   rectMode(CENTER);
+  colorMode(HSB);
   noStroke();
   ctx = canvas.getContext('3d');
 }
@@ -31,23 +31,36 @@ function draw() {
     yoff+=0.2;
   }
   background(0);
-  stroke(255);
+  //stroke(255);
   rotateX(60);
   translate(-width, -height/2);
   
-    for (var y=0; y < rows-1; y++){
-      
-      beginShape(TRIANGLE_STRIP);
-      for (var x=0; x < cols; x++){
+    for (var y=1; y < rows-1; y++){
+      for (var x=1; x < cols-1; x++){
+      beginShape(TRIANGLE_FAN);
         
-      fill(50,19,terrain[x][y]);
+      fill(50, 19, (terrain[x][y])/2);
       vertex(x*scl,y*scl, terrain[x][y]);
-
-      fill(50,19,120+terrain[x][y+1]);
+      
+      fill(50, 19,(terrain[x][y+1])/2);
       vertex(x*scl,(y+1)*scl, terrain[x][y+1]);
       
+      fill(50, 19,(terrain[x+1][y])/2);
+      vertex((x+1)*scl,y*scl, terrain[x+1][y]);
+      
+      fill(50, 19,(terrain[x][y])/2);
+      vertex(x*scl,y*scl, terrain[x][y]);
+      
+      fill(50, 19,(terrain[x][y-1])/2);
+      vertex(x*scl,(y-1)*scl, terrain[x][y-1]);
+      
+      fill(50, 19,(terrain[x-1][y])/2);
+      vertex((x-1)*scl,y*scl, terrain[x-1][y]);
+      endShape();
+      
     }
-   endShape();
+   
   }
+  
  
 }
