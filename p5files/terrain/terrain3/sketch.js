@@ -1,8 +1,8 @@
 let terrain = [];
 var cols, rows;
-var scl = 10;
-var w = 1560;
-var h = 1560;
+var scl = 20;
+var w = 1200;
+var h = 1200;
 cols = w/scl;
 rows = h/scl;
 var flying = 0;
