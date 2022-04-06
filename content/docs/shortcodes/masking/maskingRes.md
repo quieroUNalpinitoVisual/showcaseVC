@@ -1,5 +1,7 @@
 # Masking Results
 
+## Conceptos
+
 Lo primero que se realizó fue programar la función que permitirá la convolución de un kernel sobre una imagen de acuerdo con lo encontrado en [wikipedia](https://en.wikipedia.org/wiki/Kernel_(image_processing))
 
 {{< expand >}}
@@ -58,3 +60,32 @@ la implementación concreta es la siguiente
         console.log('convolucion realizada! :D');
     }
 {{< /expand >}}
+
+Una derivada parcial nos indica como se mueve la pendiente en ese punto para la funcion (imagen)
+
+
+![derivada parcial](/showcasevc/sketches/partial_derivative.png)
+https://mathinsight.org/partial_derivative_limit_definition
+
+## Imagenes convolucionadas y bordes
+
+### identidad / sin mascara :
+
+![Identidad](/showcasevc/sketches/ident.png)
+
+### sharpen :
+
+![Sharpen](/showcasevc/sketches/sharpen.png)
+
+### ridge :
+
+![Ridge1](/showcasevc/sketches/ridge1.png)
+![Ridge2](/showcasevc/sketches/ridge2.png)
+
+### box blur:
+
+![box blur](/showcasevc/sketches/boxblur.png)
+
+### composition:
+
+![composition](/showcasevc/sketches/maskcomposition.png)
