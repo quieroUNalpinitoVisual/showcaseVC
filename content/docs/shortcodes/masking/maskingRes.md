@@ -69,6 +69,10 @@ https://mathinsight.org/partial_derivative_limit_definition
 
 ## Imagenes convolucionadas y bordes
 
+### imagen base:
+
+![Lenna](/showcasevc/sketches/lenna.png)
+
 ### identidad / sin mascara :
 
 ![Identidad](/showcasevc/sketches/ident.png)
