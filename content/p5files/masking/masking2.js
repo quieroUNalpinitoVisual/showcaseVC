@@ -19,28 +19,28 @@ new p5((p) => {
         p.drawimg(img);
 
         button1 = p.createButton('sharpen');
-        button1.position(0,500);
+        button1.position(0,530);
         button1.mousePressed(p.matrix1);
         button2 = p.createButton('ridge 1');
-        button2.position(0,530);
+        button2.position(0,560);
         button2.mousePressed(p.matrix2);
         button3 = p.createButton('ridge 2');
-        button3.position(0,560);
+        button3.position(0,590);
         button3.mousePressed(p.matrix3);
         button4 = p.createButton('identity');
-        button4.position(0,590);
+        button4.position(0,620);
         button4.mousePressed(p.matrix4);
         button5 = p.createButton('box blur');
-        button5.position(0,620);
+        button5.position(0,650);
         button5.mousePressed(p.matrix5);
         button6 = p.createButton('reset');
-        button6.position(0,650);
+        button6.position(0,680);
         button6.mousePressed(p.resetimg);
 
         bord.loadPixels();
         p.image(bord, 0, 650,400,400);
         buttonbor = p.createButton('borders');
-        buttonbor.position(0,1100);
+        buttonbor.position(0,1120);
         buttonbor.mousePressed(p.calcborders);
     };
 
