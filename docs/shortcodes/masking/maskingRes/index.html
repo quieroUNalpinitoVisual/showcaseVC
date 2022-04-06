@@ -1,7 +1,7 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Masking Results #  Conceptos #  Lo primero que se realizó fue programar la función que permitirá la convolución de un kernel sobre una imagen de acuerdo con lo encontrado en wikipedia
  Expand ↕  Wiki pseudocode #  for each image row in input image: for each pixel in image row: set accumulator to zero for each kernel row in kernel: for each element in kernel row: if element position corresponding* to pixel position then multiply element value corresponding* to pixel value add result to accumulator endif set output image pixel to accumulator     la implementación concreta es la siguiente"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Masking Results #  Conceptos #  Lo primero que se realizó fue programar la función que permitirá la convolución de un kernel sobre una imagen de acuerdo con lo encontrado en wikipedia
- Expand ↕  Wiki pseudocode #  for each image row in input image: for each pixel in image row: set accumulator to zero for each kernel row in kernel: for each element in kernel row: if element position corresponding* to pixel position then multiply element value corresponding* to pixel value add result to accumulator endif set output image pixel to accumulator     la implementación concreta es la siguiente"><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/masking/maskingRes/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-04-06T08:05:09-05:00"><title>Masking Res | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
-<script defer src=/showcasevc/en.search.min.b907207579e882be9ed4c0af401b89107af78f92f9467edfe1cd5f18284e693e.js integrity="sha256-uQcgdXnogr6e1MCvQBuJEHr3j5L5Rn7f4c1fGChOaT4=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+ Expand ↕  Wiki pseudocode #  for each image row in input image: for each pixel in image row: set accumulator to zero for each kernel row in kernel: for each element in kernel row: if element position corresponding* to pixel position then multiply element value corresponding* to pixel value add result to accumulator endif set output image pixel to accumulator     la implementación concreta es la siguiente"><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/masking/maskingRes/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-04-06T10:05:31-05:00"><title>Masking Res | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
+<script defer src=/showcasevc/en.search.min.cae05e31d171c3e1397580b0d38a7a154c696dda0092251f6011b3d9059111fb.js integrity="sha256-yuBeMdFxw+E5dYCw04p6FUxpbdoAkiUfYBGz2QWREfs=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcasevc/><span>quieroUNalpinitoVisual</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-9765ec9f2fa63ff0746715996222150b class=toggle checked>
 <label for=section-9765ec9f2fa63ff0746715996222150b class="flex justify-between"><a href=/showcasevc/docs/shortcodes/masking/>Masking</a></label><ul><li><a href=/showcasevc/docs/shortcodes/masking/maskingLab/>Masking Lab</a></li><li><a href=/showcasevc/docs/shortcodes/masking/maskingRes/ class=active>Masking Res</a></li></ul></li><li><a href=/showcasevc/docs/shortcodes/members/>Members</a></li><li><input type=checkbox id=section-d95dc5d36ab28c1f4c64829f0b016347 class=toggle>
 <label for=section-d95dc5d36ab28c1f4c64829f0b016347 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/terrain/>Terrain</a></label><ul><li><a href=/showcasevc/docs/shortcodes/terrain/terrain1/>Terrain1</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain2/>Terrain2</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain3/>Terrain3</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrainRes/>Terrain Res</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcasevc/svg/menu.svg class=book-icon alt=Menu></label>
@@ -38,8 +38,8 @@
                     let xpos = i+k;
                     let ypos = j+l;
                     let red = p.red(img.get(xpos,ypos));
-                    let green = p.blue(img.get(xpos,ypos));
-                    let blue = p.green(img.get(xpos,ypos));
+                    let green = p.green(img.get(xpos,ypos));
+                    let blue = p.blue(img.get(xpos,ypos));
                     rtotal += red * matrix[k+1][l+1];
                     gtotal += green * matrix[k+1][l+1];
                     btotal += blue * matrix[k+1][l+1];
@@ -60,13 +60,99 @@
     console.log('convolucion realizada! :D');
 }
 </code></pre></div></label></div><p>Una derivada parcial nos indica como se mueve la pendiente en ese punto para la funcion (imagen)</p><p><img src=/showcasevc/sketches/partial_derivative.png alt="derivada parcial">
-<a href=https://mathinsight.org/partial_derivative_limit_definition>https://mathinsight.org/partial_derivative_limit_definition</a></p><h2 id=imagenes-convolucionadas-y-bordes>Imagenes convolucionadas y bordes
-<a class=anchor href=#imagenes-convolucionadas-y-bordes>#</a></h2><h3 id=imagen-base>imagen base:
+<a href=https://mathinsight.org/partial_derivative_limit_definition>https://mathinsight.org/partial_derivative_limit_definition</a></p><p>codigo de detección de bordes:</p><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><h3 id=p5-code>p5 code
+<a class=anchor href=#p5-code>#</a></h3><pre><code>p.calcborders = function(){
+    let prebord = p.createImage(400,400);
+    for (let i = 0; i &lt; 400; i++) {
+        for (let j = 0; j &lt; 400; j++) {
+            let g = (p.red(img.get(i,j))+p.green(img.get(i,j))+p.blue(img.get(i,j)))/3;
+            prebord.set(i,j,g);
+        }
+    }
+    let med = [0,0,0,0,0,0,0,0,0];
+    for (let r = 0; r &lt; 3; r++) {
+        for (let i = 1; i &lt; 400-1; i++) {
+            for (let j = 1; j &lt; 400-1; j++) {
+                med[0] = prebord.get(i - 1,j - 1);
+                med[1] = prebord.get(i,j - 1);
+                med[2] = prebord.get(i + 1,j - 1);
+                med[3] = prebord.get(i - 1,j);
+                med[4] = prebord.get(i,j);
+                med[5] = prebord.get(i + 1,j);
+                med[6] = prebord.get(i - 1,j + 1);
+                med[7] = prebord.get(i,j + 1);
+                med[8] = prebord.get(i + 1,j + 1);
+                med.sort();
+                prebord.set(i,j,med[4]);
+            }
+        }
+    }
+    let gradx = p.zeroes([400,400]);
+    let grady = p.zeroes([400,400]);
+    for (let i = 0; i &lt; 400-1; i++) {
+        for (let j = 0; j &lt; 400-1; j++) {
+            gradx[i][j] = p.red(img.get(i+1,j)) - p.red(img.get(i,j));
+            grady[i][j] = p.red(img.get(i,j+1)) - p.red(img.get(i,j));
+        }
+    }
+    let gradmag = p.zeroes([400,400]);
+    let gradang = p.zeroes([400,400]);
+    for (let i = 0; i &lt; 400-1; i++) {
+        for (let j = 0; j &lt; 400-1; j++) {
+            gradmag[i][j]= p.abs(p.sqrt((gradx[i][j]*gradx[i][j])+(grady[i][j]*grady[i][j])));
+            gradang[i][j]= p.atan2(grady[i][j],gradx[i][j]);
+        }
+    } 
+    let borders = p.zeroes([400,400]);
+    for (let i = 1; i &lt; 400-1; i++) {
+        for (let j = 1; j &lt; 400-1; j++) {
+            if (gradang[i][j] &gt; 0 &amp;&amp; gradang[i + 1][j] &lt; 0) {
+                borders[i][j] = 1;
+            } else if (gradang[i][j] &lt; 0 &amp;&amp; gradang[i + 1][j] &gt; 0) {
+                borders[i][j] = 1;
+            } else if (gradang[i][j] &gt; 0 &amp;&amp; gradang[i][j + 1] &lt; 0) {
+                borders[i][j] = 1;
+            } else if (gradang[i][j] &lt; 0 &amp;&amp; gradang[i][j + 1] &gt; 0) {
+                borders[i][j] = 1;
+            }
+        }
+    }
+    for (let i = 1; i &lt; 400-1; i++) {
+        for (let j = 1; j &lt; 400-1; j++) {
+            if( borders[i][j-1] == 0 &amp;&amp;
+                borders[i-1][j] == 0 &amp;&amp;
+                borders[i+1][j] == 0 &amp;&amp;
+                borders[i][j+1] == 0 ){
+                    borders[i][j] = 0;
+            }
+        }
+    }
+    let postbord = p.createImage(400,400);
+    for (let i = 0; i &lt; 400; i++) {
+        for (let j = 0; j &lt; 400; j++) {
+            if (borders[i][j] == 1) {
+                //postbord.set(i, j, p.color(0,0,0));
+                postbord.set(i, j, p.color(255,255,255));
+            } else {
+                //postbord.set(i, j, p.color(255,255,255));
+                postbord.set(i, j, p.color(0,0,0));
+            }
+        }
+    }
+    postbord.updatePixels();
+    console.log(prebord);
+    console.log(postbord);
+    bord = postbord;
+    p.image(bord, 0, 650,400,400);
+}
+</code></pre></div></label></div><h2 id=imagenes-convolucionadas-y-bordes>Imagenes convolucionadas y bordes
+<a class=anchor href=#imagenes-convolucionadas-y-bordes>#</a></h2><p>Los siguientes resultados poseen un error en la funcion de convolucion que intercambia el valor de verdes por azules y viceversa, visible en el resultado de la convolución, pero esto mismo debido a que es una permutación no afecta el calculo de bordes el cual se hace a partir de la imagen en escala de grises.</p><h3 id=imagen-base>imagen base:
 <a class=anchor href=#imagen-base>#</a></h3><p><img src=/showcasevc/sketches/lenna.png alt=Lenna></p><h3 id=identidad--sin-mascara->identidad / sin mascara :
 <a class=anchor href=#identidad--sin-mascara->#</a></h3><p><img src=/showcasevc/sketches/ident.png alt=Identidad></p><h3 id=sharpen->sharpen :
 <a class=anchor href=#sharpen->#</a></h3><p><img src=/showcasevc/sketches/sharpen.png alt=Sharpen></p><h3 id=ridge->ridge :
 <a class=anchor href=#ridge->#</a></h3><p><img src=/showcasevc/sketches/ridge1.png alt=Ridge1>
 <img src=/showcasevc/sketches/ridge2.png alt=Ridge2></p><h3 id=box-blur>box blur:
 <a class=anchor href=#box-blur>#</a></h3><p><img src=/showcasevc/sketches/boxblur.png alt="box blur"></p><h3 id=composition>composition:
-<a class=anchor href=#composition>#</a></h3><p><img src=/showcasevc/sketches/maskcomposition.png alt=composition></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/248c756f5241d7335bdb7e8cd00798cb81ccfb50 title="Last modified by jsromero98 | April 6, 2022" target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
+<a class=anchor href=#composition>#</a></h3><p><img src=/showcasevc/sketches/maskcomposition.png alt=composition></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/ffb561d479899ebd59a41ebaf954301dd534d641 title="Last modified by jsromero98 | April 6, 2022" target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>April 6, 2022</span></a></div></div><script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#masking-results>Masking Results</a><ul><li><a href=#conceptos>Conceptos</a></li><li><a href=#imagenes-convolucionadas-y-bordes>Imagenes convolucionadas y bordes</a><ul><li><a href=#imagen-base>imagen base:</a></li><li><a href=#identidad--sin-mascara->identidad / sin mascara :</a></li><li><a href=#sharpen->sharpen :</a></li><li><a href=#ridge->ridge :</a></li><li><a href=#box-blur>box blur:</a></li><li><a href=#composition>composition:</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
