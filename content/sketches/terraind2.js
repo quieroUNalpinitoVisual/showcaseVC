@@ -50,4 +50,4 @@ new p5((p) => {
       p.endShape();
     }
   };
-}, "terrain");
+}, "terraind2");
