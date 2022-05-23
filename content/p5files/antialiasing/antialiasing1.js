@@ -100,15 +100,12 @@ function supersamp(){
       let sj = LENGTH * j + 1;
       for (; si < LENGTH * i + LENGTH - 1 ; si ++) {
         for (; sj < LENGTH * j + LENGTH - 1 ; sj ++) {
-          //console.log(si,sj);
-          //console.log(get(si,sj)[0])
           if(get(si,sj)[0] != 0){
             count += 1;
           }
         }
       }
       let shade = (count/total)*10;
-      //console.log(shade);
       board._memory2D[j][i]=[red(0), green(255*shade), blue(0), alpha(255)];
     }
   }
