@@ -1,7 +1,7 @@
 ---
 bookCollapseSection: true
 ---
-# Creating a SceneTree based cube with p5.js
+# Creating a Matrix Transformation based cube with p5.js
 
 ## Academic report
 
