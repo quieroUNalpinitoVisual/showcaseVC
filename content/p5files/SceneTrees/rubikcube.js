@@ -1,4 +1,6 @@
 //Based on zl25drexel's p5.js 
+//https://editor.p5js.org/zl25drexel/sketches/9K3PnFQQ_
+
 const SPEED = 10, MOVES = 20;
 
 function randomInt(max){
@@ -51,7 +53,7 @@ class Cubie{
         // fill(this.highlight? 0 : 255);
         noFill();
         stroke(0);
-        strokeWeight(1);
+        strokeWeight(3);
         push();
         let idx = 0;
         let mat4 = this.m.mat4;
@@ -312,7 +314,7 @@ function setup() {
 }
 
 function draw() {
-    background(200);
+    background(51);
     orbitControl();
     // debugMode();
 
