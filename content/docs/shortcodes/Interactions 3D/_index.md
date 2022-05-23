@@ -17,7 +17,7 @@ hemos crecido y vivido en un entorno 3D y por tanto hemos desarrollado habilidad
 
 #### Entornos 3D:
 
-Se definen los entornos 3D interactivos como representaciones informáticas del mundo real o espacios imaginarios a través de los cuales los usuarios pueden navergar y en los que pueden interacturar con objetos en tiempo real. A diferencia de los entornos virtuales inmersivos [BKLP04], que utilizan pantallas especializadas y dispositivos de interacción, como pantallas montadas en la cabeza, para crear una sensación de presencia para los usuarios dentro del mundo virtual, los entornos 3D interactivos no se limitan al contexto inmersivo y aprovechan los recursos comunes y general de hardware, es decir mouse y teclado como multi_touch input.
+Se definen los entornos 3D interactivos como representaciones informáticas del mundo real o espacios imaginarios a través de los cuales los usuarios pueden navegar y en los que pueden interacturar con objetos en tiempo real. A diferencia de los entornos virtuales inmersivos , que utilizan pantallas especializadas y dispositivos de interacción, como pantallas montadas en la cabeza, para crear una sensación de presencia para los usuarios dentro del mundo virtual, los entornos 3D interactivos no se limitan al contexto inmersivo y aprovechan los recursos comunes y general de hardware, es decir mouse y teclado como multi_touch input.
 
 Tendremos en cuenta la clasificación de las interacciones en un ambiente interactivo 3D que encontramos en el libro de Jankowski[1] que habla de 3 tareas de interaccion universales: Navegación, Selección y manipulación, y Control de sistema. 
 
