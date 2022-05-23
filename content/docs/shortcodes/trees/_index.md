@@ -1,8 +1,8 @@
 ---
 bookCollapseSection: true
 ---
-# Creating a terrain with p5.js and move into with scene trees 
-
+# Investigación sobre interacciónes de usuario en 3D
+(A Survey of Interaction Techniques for Interactive 3D Environments) - Jacek Jankowski, Martin Hachet
 ## Academic report
 
 ### Introducción:
@@ -43,12 +43,26 @@ Segun algunas literaturas podemos agrupoar 4 tipos de movimiento de punto de vis
 **Movimiento de trayectoria especificado:** Movimiento a lo largo de una trayectoria de posición y orientación, como el movimiento de una cámara cinematográfica (corresponde al objetivo Maniobra de Bowman et al. y al objetivo Inspección de Tan et al.).
 
 ##### Selección y manipulación: 
-Se refiere a las técnicas para elegir un objeto y especificar su posición, orientación y escala.
+Otra tarea típica que se realiza en un entorno virtual 3D es la selección de objetos y su manipulación directa mediante la especificación su posición, orientación y escala. Encontramos que las técnicas de interacción mas comunes en la literatura para la manipulación 3D  incluyen tres tareas fundamentales: traducción de objetos (posicionamiento), rotación de objetos y escalado de objetos.
 Las técnicas de interacción para la manipulación 3D incluyen tres tareas fundamentales: traducción de objetos (posicionamiento), rotación de objetos y escalado de objetos.
+
+###### Seleccion de objetos:
+La forma más común de seleccionar objetos en los VE de escritorio es colocar el cursor del mouse sobre un objeto dado y hacer clic en un botón del mouse. La técnica se basa en la proyección de rayos (ray casting); utiliza el rayo desde el punto del ojo a través del píxel actualmente seleccionado por el puntero del mouse para encontrar el primer punto de intersección con la escena (la superficie del objetivo o su superficie aproximada, por ejemplo, el cuadro delimitador). Si el rayo virtual se cruza con un objeto, se puede seleccionar para una mayor manipulación.
+
+###### Manipulación de objeto:
+
+La manipulación de objetos es otra tarea básica que se realiza en un entorno virtual 3D, especialmente durante la construcción de escenas. Al diseñar una escena con múltiples objetos, los usuarios tienen que realinear y ajustar varias partes repetidamente. Es importante proporcionar una técnica de manipulación de objetos eficiente.
+
+<img src="../../../images/trees3.png"  />
+<img src="../../../images/trees4.png"  />
+
+
 
 ##### Control del sistema:
 Se refiere a la comunicación entre el usuario y el sistema que no forma parte del entorno virtual.
 
+Se puede enfocar en una tarea en la que se aplica un comando para cambiar el estado del sistema o el modo de interacción .Se  señala que aunque el movimiento del punto de vista y la selección/manipulación se han estudiado ampliamente, se ha investigado muy poco sobre las tareas de control del sistema. Sin embargo, las técnicas de control de aplicaciones se han estudiado intensamente durante los últimos 40 años en las interfaces gráficas de usuario WIMP 2D "apuntar y hacer clic" (interfaces basadas en ventanas, íconos, menús y un dispositivo señalador, generalmente un mouse).
+######
 
 #### Metodos
 {{<section>}}
