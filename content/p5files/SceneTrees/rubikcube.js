@@ -181,7 +181,7 @@ function keyPressed(){
             this.currentMove.start();
         }
     }else{
-        applyMove(key);
+        //applyMove(key);
     }
 }
 
@@ -283,32 +283,40 @@ const ALLMOVES = [
 
 let counter = 0;
 let text;
+let fbo1, fbo2;
+let cam1, cam2;
+let length=485;
 
 function setup() {
-    createCanvas(580, 580, WEBGL);
 
-    for(var x=-1; x<2; x++){
-        for(var y=-1; y<2; y++){
-            for(var z=-1; z<2; z++){
-                CUBES.push(new Cubie(x, y, z, CUBES.length));
-            }
-        }
-    }
-    this.sequence = [];
-    let reverseSequence = [];
-    for (let i = 0; i <MOVES; i++) {
-        let move = ALLMOVES[randomInt(ALLMOVES.length)];
-        this.sequence.push(move);
-        let reverse = move.copy();
-        reverse.reverse();
-        reverseSequence.push(reverse);
-    }
+  createCanvas(length*2, length, WEBGL);
+  fbo1 = createGraphics(width/2, height, WEBGL);
+  fbo2 = createGraphics(width/2, height, WEBGL);
 
-    reverseSequence.reverse();
-    this.sequence = this.sequence.concat(reverseSequence);
+  fbo2.ortho(-fbo2.width / 2, fbo2.width / 2, -fbo2.height / 2, fbo2.height / 2, 1, 10000)
 
-    this.counter = 0;
-    this.currentMove = this.sequence[counter];
+  for(var x=-1; x<2; x++){
+      for(var y=-1; y<2; y++){
+          for(var z=-1; z<2; z++){
+              CUBES.push(new Cubie(x, y, z, CUBES.length));
+          }
+      }
+  }
+  this.sequence = [];
+  let reverseSequence = [];
+  for (let i = 0; i <MOVES; i++) {
+      let move = ALLMOVES[randomInt(ALLMOVES.length)];
+      this.sequence.push(move);
+      let reverse = move.copy();
+      reverse.reverse();
+      reverseSequence.push(reverse);
+  }
+
+  reverseSequence.reverse();
+  this.sequence = this.sequence.concat(reverseSequence);
+
+  this.counter = 0;
+  this.currentMove = this.sequence[counter];
 
 
 }
@@ -328,7 +336,6 @@ function draw() {
             this.counter ++;
             this.currentMove = this.sequence[this.counter];
             this.currentMove.start();
-            text.html("<h2>"+(this.counter+1)+"</h2>");
         }
     }
 

@@ -7,25 +7,33 @@ bookCollapseSection: true
 
 ### Introducción:
 
-En el marco de trabajo presentado por el profesor en clase, que enmarcaba varios tipos de ilusiones, nos llamó la atención el titulado __MACH BANDS__ , 
-el cual se enfocaba en la generación de un terreno con una superficie natural con la aplicación del efecto nombrado.
-
-Para lograr el objetivo utilizamos la libreria __p5.js__, la cual utilizaremos posiblemente durante los proyectos del semestre por recomendación del profesor
-y no valemos de una libreria integrada de p5 llamada __Perlin noise__ para tratar de generar una textura natural para el terreno.
+Durante el desarrollo del workshop, buscamos una manera didáctica de llevar a cabo una representación gráfica de la implementación de transformaciones matriciales, y finalmente se planteó que un _Cubo de Rubik_ puede involucrar varios de estos conceptos, especialmente si se habla de *Transformaciones Lineales*.
 
 ### Literatura:
+
+#### Transformaciones Lineales
+Como se puede imaginar, hay una cantidad inimaginablemente enorme de transformaciones posibles, la mayoría de las cuales sería bastante complicado pensar en ellas. Afortunadamente, el álgebra lineal suele estar limitada a un tipo especial de transformación que es más fácil de entender: las transformaciones lineales.
+
+Visualmente, esto significa que toda la cuadrícula de puntos 2d "sigue" con î y ĵ, por así decirlo. Puedes saber que una transformación es lineal si todas esas líneas de cuadrícula que comenzaron paralelas y espaciadas uniformemente permanecen paralelas y espaciadas uniformemente (¿por qué?). En realidad, es un poco más limitado que eso. Si una transformación es lineal, también debe fijar el origen en su lugar.
+
+<img src="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2016/linear-transformations/transform_basis.png" width="500"/>
+
+#### Matriz de Rotación
+##### Rotación 2D
+
+<img src="./2d.png" width="300"/>
+
+<video width="500" height="350" controls><source src="https://3b1b-posts.us-east-1.linodeobjects.com//content/lessons/2016/linear-transformations/rotate_about_origin.mp4#t=0.001"><video/>
+
+##### Rotación 3D
+<img src="./3d.png" width="300"/>
 
 #### p5.js:
 
 Es una biblioteca de JavaScript para la codificación creativa, con un enfoque en la realización de la codificación accesible e inclusiva para artistas, diseñadores, educadores, principiantes y cualquier otra persona. P5.js es gratuito y de código abierto porque la filosofia de los creadores es que el  software, y las herramientas para aprenderlo, deben ser accesibles para todos.(p5js.org)
 
-#### Perlin noise
-
-Es un generador de secuencias aleatorias que produce una sucesión de números armónicos ordenados de forma más natural en compración con la función estándar aleatoria (). Fue inventado por Ken Perlin en la década de 1980 y se ha utilizado desde aplicaciones gráficas para producer textura de procedimiento, movimiento natural, formas, terrenos, etc. (p5js.org)
-
-<img src="../../../sketches/pn1.png" width="200"  />
-
-La mayor diferencia con random() es que perlin noise se define en un espacio N-dimensional infinito donde cada par de coordenadas corresponde a un valor semi-aleatorio fijo.
+#### Referencias
+[3 blue 1 Brown - Linear Transformations](https://www.3blue1brown.com/lessons/linear-transformations)
 
 #### Metodos
 {{<section>}}
