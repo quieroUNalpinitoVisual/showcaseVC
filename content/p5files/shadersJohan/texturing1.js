@@ -8,45 +8,48 @@ function preload(){
 }
 
 function setup() {
-    createCanvas(500, 500,WEBGL);
+    createCanvas(500, 500, WEBGL);
     noStroke();
     textureMode(NORMAL);
-    shader(lumaShader);
-    lumaShader.setUniform('texture',baseimg);
 }
   
 function draw() {
-    reset();
+    noLoop();
+    resetimg();
 }
 
 function keyPressed () {
     if(keyCode === LEFT_ARROW){
         HSVV();
-    }
+    } else
     if(keyCode === RIGHT_ARROW){
         HSLL();
-    }
+    } else
     if(keyCode === DOWN_ARROW){
         average();
-    }
-    if(keycode === UP_ARROW){
-        reset();
+    } else
+    if(keyCode === UP_ARROW){
+        resetimg();
     }
 }
 
-function reset(){
-    image(baseimg,0,0);
+function resetimg(){
+    console.log('deberia volver a color');
+    background(0);
+    image(baseimg,-250,-250);
     loadPixels();
 }
 
 function HSVV(){
-
+    console.log("TODO");
 }
 
 function HSLL(){
-
+    console.log("TODO");
 }
 
 function average(){
+    shader(lumaShader);
+    lumaShader.setUniform('texture',baseimg);
     lumaShader.setUniform('greyimg', true);
 }
