@@ -3,12 +3,12 @@ let lumaShader;
 let greyimg;
 
 function preload(){
-    lumaShader = readShader('./lumaa.frag');
+    lumaShader = readShader("/showcasevc/p5files/shadersJohan/luma.frag",{varyings: Tree.texcoords});
     baseimg = loadImage('/showcasevc/sketches/mayonesito.jpg');
 }
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(500, 500,WEBGL);
     noStroke();
     textureMode(NORMAL);
     shader(lumaShader);
