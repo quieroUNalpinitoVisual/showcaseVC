@@ -1,4 +1,5 @@
 let baseimg;
+let rstimg;
 let lumaShader;
 let greyimg;
 
@@ -15,7 +16,9 @@ function setup() {
   
 function draw() {
     noLoop();
+    rstimg = baseimg;
     resetimg();
+    shader(lumaShader);
 }
 
 function keyPressed () {
@@ -36,22 +39,27 @@ function keyPressed () {
 function resetimg(){
     console.log('deberia volver a color');
     background(0);
-    image(baseimg,-250,-250);
+    image(rstimg,-250,-250);
     loadPixels();
 }
 
 function HSVV(){
-    console.log("TODO");
+    lumaShader.setUniform('val',true);
+    lumaShader.setUniform('texture',baseimg);
+    image(baseimg,-250,-250);
+    loadPixels();
 }
 
 function HSLL(){
-    shader(lumaShader);
-    lumaShader.setUniform('mode',2);
+    lumaShader.setUniform('lum',true);
     lumaShader.setUniform('texture',baseimg);
+    image(baseimg,-250,-250);
+    loadPixels();
 }
 
 function average(){
-    shader(lumaShader);
-    lumaShader.setUniform('mode',1);
+    lumaShader.setUniform('avg',true);
     lumaShader.setUniform('texture',baseimg);
+    image(baseimg,-250,-250);
+    loadPixels();
 }

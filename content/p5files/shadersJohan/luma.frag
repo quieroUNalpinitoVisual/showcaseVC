@@ -2,19 +2,21 @@ precision mediump float;
 
 // uniforms are defined and sent by the sketch
 uniform sampler2D texture;
-uniform int mode;
+uniform bool avg;
+uniform bool lum;
+uniform bool val;
 
 // interpolated texcoord (same name and type as in vertex shader)
 varying vec2 texcoords2;
 
 // returns luma of given texel
 float luma(vec3 texel) {
-  if(mode == 1){
+  if(avg){
     return 0.333 * texel.r + 0.333 * texel.g + 0.333 * texel.b;
   }
-  if(mode == 2){
-    float max = 0;
-    float min = 0;
+  if(lum){
+    float max = 0.0;
+    float min = 0.0;
     if ( texel.r > texel.g && texel.r > texel.b){
       max = texel.r;
     } else if (texel.g > texel.r && texel.g > texel.b){
@@ -29,10 +31,16 @@ float luma(vec3 texel) {
     } else if (texel.b < texel.r && texel.b < texel.g) {
       min = texel.b;
     }
-    return (max+min)/2;
+    return (max*0.5)+(min*0.5);
   }
-  if(mode == 3){
-    return 0.333 * texel.r + 0.333 * texel.g + 0.333 * texel.b;
+  if(val){
+    if ( texel.r > texel.g && texel.r > texel.b){
+      return texel.r;
+    } else if (texel.g > texel.r && texel.g > texel.b){
+      return texel.g;
+    } else if (texel.b > texel.r && texel.b > texel.g) {
+      return texel.b;
+    }
   }
 }
 
