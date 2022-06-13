@@ -20,16 +20,16 @@ function draw() {
 
 function keyPressed () {
     if(keyCode === LEFT_ARROW){
-        HSVV();
-    } else
-    if(keyCode === RIGHT_ARROW){
-        HSLL();
-    } else
-    if(keyCode === DOWN_ARROW){
-        average();
-    } else
-    if(keyCode === UP_ARROW){
         resetimg();
+    }
+    if(keyCode === RIGHT_ARROW){
+        average();
+    }
+    if(keyCode === DOWN_ARROW){
+        HSLL();
+    }
+    if(keyCode === UP_ARROW){
+        HSVV();
     }
 }
 
@@ -45,11 +45,13 @@ function HSVV(){
 }
 
 function HSLL(){
-    console.log("TODO");
+    shader(lumaShader);
+    lumaShader.setUniform('mode',2);
+    lumaShader.setUniform('texture',baseimg);
 }
 
 function average(){
     shader(lumaShader);
+    lumaShader.setUniform('mode',1);
     lumaShader.setUniform('texture',baseimg);
-    lumaShader.setUniform('greyimg', true);
 }
