@@ -26,7 +26,7 @@ Se refiere a la tarea motora de mover el punto de vista del usuario a través de
 
 Los entornos 3D interactivos suelen representar más espacio del que se puede ver desde un solo punto. Los usuarios deben poder moverse dentro del entorno para obtener diferentes vistas de la escena. Este proceso de desplazarse por un entorno virtual mientras se realiza un seguimiento del propio paradero y los objetivos de la tarea es el tema de una serie de técnicas a las que a menudo se hace referencia con nombres como orientación, locomoción, navegación y cámara.
 
-Hay que resaltar que es difícil desarrollar una técnica eficaz para la navegación en entornos 3D interactivos. En primer lugar, el control del punto de vista implica seis grados de libertad (6DOF): tres dimensiones para la ubicación posicional (traslación) y tres para la ubicación angular (rotación).
+Hay que resaltar que es difícil desarrollar una técnica eficaz para la navegación en entornos 3D interactivos. En primer lugar, el control del punto de vista implica seis grados de libertad : tres dimensiones para la ubicación posicional (traslación) y tres para la ubicación angular (rotación).
 
 <img src="../../../images/trees1.png"  />
 
