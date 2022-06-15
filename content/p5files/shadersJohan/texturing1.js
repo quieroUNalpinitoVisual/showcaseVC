@@ -1,5 +1,4 @@
 let baseimg;
-let rstimg;
 let lumaShader;
 let greyimg;
 
@@ -16,9 +15,16 @@ function setup() {
   
 function draw() {
     noLoop();
-    rstimg = baseimg;
-    resetimg();
     shader(lumaShader);
+    background(0);
+    lumaShader.setUniform('greyscale',false);
+    lumaShader.setUniform('val',false);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('avg',false);
+    lumaShader.setUniform('texture',baseimg);
+    quad(-250,-250,250,-250,250,250,-250,250);
+    loadPixels();
+    image(baseimg,-250,-250);
 }
 
 function keyPressed () {
@@ -37,29 +43,42 @@ function keyPressed () {
 }
 
 function resetimg(){
-    console.log('deberia volver a color');
     background(0);
-    image(rstimg,-250,-250);
+    lumaShader.setUniform('greyscale',false);
+    lumaShader.setUniform('val',false);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('avg',false);
+    lumaShader.setUniform('texture',baseimg);
+    quad(-250,-250,250,-250,250,250,-250,250);
     loadPixels();
 }
 
 function HSVV(){
+    lumaShader.setUniform('greyscale',true);
     lumaShader.setUniform('val',true);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('avg',false);
     lumaShader.setUniform('texture',baseimg);
-    image(baseimg,-250,-250);
+    quad(-250,-250,250,-250,250,250,-250,250);
     loadPixels();
 }
 
 function HSLL(){
+    lumaShader.setUniform('greyscale',true);
     lumaShader.setUniform('lum',true);
+    lumaShader.setUniform('avg',false);
+    lumaShader.setUniform('val',false);
     lumaShader.setUniform('texture',baseimg);
-    image(baseimg,-250,-250);
+    quad(-250,-250,250,-250,250,250,-250,250);
     loadPixels();
 }
 
 function average(){
+    lumaShader.setUniform('greyscale',true);
     lumaShader.setUniform('avg',true);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('val',false);
     lumaShader.setUniform('texture',baseimg);
-    image(baseimg,-250,-250);
+    quad(-250,-250,250,-250,250,250,-250,250);
     loadPixels();
 }

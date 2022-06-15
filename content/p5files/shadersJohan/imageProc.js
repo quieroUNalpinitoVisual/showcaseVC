@@ -1,25 +1,41 @@
 let baseimg;
-let lumaShader;
-let greyimg;
+let rstimg;
+let maskShader;
 
 function preload(){
     maskShader = readShader("/showcasevc/p5files/shadersJohan/mask.frag",{varyings: Tree.texcoords});
     baseimg = loadImage('/showcasevc/sketches/mayonesito.jpg');
+    rstimg = baseimg;
 }
 
 function setup() {
     createCanvas(500, 500, WEBGL);
     noStroke();
+    noLoop();
     textureMode(NORMAL);
+    loadPixels();
 }
   
 function draw() {
-    noLoop();
     background(0);
-    image(baseimg,-250,-250);
+    image(rstimg,-250,-250);
     shader(maskShader);
     maskShader.setUniform('texture',baseimg);
-    maskShader.setUniform('texOffset',[1,1]);
+    maskShader.setUniform('texOffset',[1/500,1/500]);
     maskShader.setUniform('mask',[-1,-1,-1,-1,8,-1,-1,-1,-1]);
-    image(baseimg,-250,-250);
+    //maskShader.setUniform('mask',[0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2]);
+    
+    //image(baseimg,-250,-250);
+}
+
+function keyPressed () {
+
+    if(keyCode === RIGHT_ARROW){
+        applyMask();
+    }
+
+}
+
+function applyMask(){
+    quad(-250,-250,250,-250,250,250,-250,250);
 }

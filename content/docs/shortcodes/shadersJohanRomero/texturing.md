@@ -1,5 +1,7 @@
 # Texturing
 
+left arrow -> reset
+
 down arrow -> HSL ( L )
 
 up arrow -> HSV ( V )
