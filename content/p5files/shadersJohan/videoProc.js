@@ -23,7 +23,6 @@ function setup() {
 function draw() {
     background(0);
     if(isVidReady){
-        //image(basevid,-150,-150,width,height);
         quad(-150,-150,150,-150,150,150,-150,150);
     }
     basevid.loop();
@@ -47,7 +46,6 @@ function resetMask(){
     dosom = false;
     maskShader.setUniform('dosom',dosom);
     if(isVidReady){
-        //image(basevid,-150,-150,width,height);
         quad(-150,-150,150,-150,150,150,-150,150);
     }
 }
@@ -56,7 +54,6 @@ function applyMask(){
     dosom = true;
     maskShader.setUniform('dosom',dosom);
     if(isVidReady){
-        //image(basevid,-150,-150,width,height);
         quad(-150,-150,150,-150,150,150,-150,150);
     }
 }
