@@ -4,6 +4,7 @@ uniform sampler2D texture;
 uniform vec2 texOffset;
 // holds the 3x3 kernel
 uniform float mask[9];
+uniform bool dosom;
 
 // we need our interpolated tex coord
 varying vec2 texcoords2;
@@ -41,5 +42,5 @@ void main() {
   }
 
   // 4. Set color from convolution
-  gl_FragColor = vec4(convolution.rgb, 1.0); 
+  gl_FragColor = dosom ? vec4(convolution.rgb, 1.0) : rgba[4]; 
 }
