@@ -8,7 +8,7 @@ function preload(){
     edgemask = readShader("/showcasevc/p5files/edgeaa/edgemask.frag",{varyings: Tree.texcoords});
     antialias = readShader("/showcasevc/p5files/edgeaa/antialias.frag",{varyings: Tree.texcoords});
     baseimg = loadImage('/showcasevc/sketches/mayonesito.jpg');
-    edgeimg = baseimg;
+    edgeimg = loadImage('/showcasevc/sketches/bordesmayonesito.png');
 }
 
 function setup() {
@@ -21,12 +21,7 @@ function setup() {
 
 function draw() {
     background(0);
-    shader(edgemask);
-    edgemask.setUniform('texture',edgeimg);
-    edgemask.setUniform('texOffset',[1/500,1/500]);
-    edgemask.setUniform('mask',[-1,-1,-1,-1,8,-1,-1,-1,-1]);
-    edgemask.setUniform('dosom',false);
-    quad(-250,-250,250,-250,250,250,-250,250);
+    image(baseimg,-250,-250);
 }
 
 function keyPressed () {
@@ -59,7 +54,12 @@ function applyAA(){
 }
 
 function applyMask(){
-    edged = true;
+    background(0);
+    shader(edgemask);
     edgemask.setUniform('dosom',true);
+    edgemask.setUniform('texture',edgeimg);
+    edgemask.setUniform('texOffset',[1/500,1/500]);
+    edgemask.setUniform('mask',[-1,-1,-1,-1,8,-1,-1,-1,-1]);
     quad(-250,-250,250,-250,250,250,-250,250);
+    edged = true;
 }
