@@ -57,7 +57,7 @@ function applyMask(){
     background(0);
     shader(edgemask);
     edgemask.setUniform('dosom',true);
-    edgemask.setUniform('texture',edgeimg);
+    edgemask.setUniform('texture',baseimg);
     edgemask.setUniform('texOffset',[1/500,1/500]);
     edgemask.setUniform('mask',[-1,-1,-1,-1,8,-1,-1,-1,-1]);
     quad(-250,-250,250,-250,250,250,-250,250);
