@@ -1,9 +1,9 @@
 ---
 bookCollapseSection: true
 ---
-# Shaders Johan Sebastian Romero Diaz
+# Shaders 
 
-seccion para los ejercicios propuestos para la seccion final del curso
+#### Fragment Shaders
 
-
-
+#### Referencias
+[The Book Shaders (Vivo, Patricio & Lowe, Jen)](https://thebookofshaders.com/)
