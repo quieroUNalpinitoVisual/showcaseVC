@@ -8,6 +8,7 @@ varying vec2 texcoords2;
 
 void main() {
   vec4 edgepoint = texture2D(textureedge, texcoords2 + vec2(0.0,0.0))
+  // trying to read border texture point
   //if( (edgepoint.r < 0.1 ) & (edgepoint.g < 0.1) & (edgepoint.b < 0.1)){
   if( edgepoint.r < 0.1 ){
     vec2 tc0 = texcoords2 + vec2(-texOffset.s, -texOffset.t);
