@@ -37,10 +37,10 @@ function draw() {
   rotateX(frames * 0.005);
   rotateY(frames * 0.005);
 
-  truchetShader.setUniform('u_zoom', int(map(frames2*0.2, 0, width, 1, 30)));
+  truchetShader.setUniform('u_zoom', int(map(frames2*0.1, 0, width, 1, 30)));
   pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
   frames++;
-  frames2++;
+  frames2 = frames2 + 2;
   
   sphere(100,200);
 }
