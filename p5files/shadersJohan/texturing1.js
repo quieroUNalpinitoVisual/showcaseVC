@@ -8,45 +8,77 @@ function preload(){
 }
 
 function setup() {
-    createCanvas(500, 500,WEBGL);
+    createCanvas(500, 500, WEBGL);
     noStroke();
     textureMode(NORMAL);
-    shader(lumaShader);
-    lumaShader.setUniform('texture',baseimg);
 }
   
 function draw() {
-    reset();
+    noLoop();
+    shader(lumaShader);
+    background(0);
+    lumaShader.setUniform('greyscale',false);
+    lumaShader.setUniform('val',false);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('avg',false);
+    lumaShader.setUniform('texture',baseimg);
+    quad(-250,-250,250,-250,250,250,-250,250);
+    loadPixels();
+    image(baseimg,-250,-250);
 }
 
 function keyPressed () {
     if(keyCode === LEFT_ARROW){
-        HSVV();
+        resetimg();
     }
     if(keyCode === RIGHT_ARROW){
-        HSLL();
-    }
-    if(keyCode === DOWN_ARROW){
         average();
     }
-    if(keycode === UP_ARROW){
-        reset();
+    if(keyCode === DOWN_ARROW){
+        HSLL();
+    }
+    if(keyCode === UP_ARROW){
+        HSVV();
     }
 }
 
-function reset(){
-    image(baseimg,0,0);
+function resetimg(){
+    background(0);
+    lumaShader.setUniform('greyscale',false);
+    lumaShader.setUniform('val',false);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('avg',false);
+    lumaShader.setUniform('texture',baseimg);
+    quad(-250,-250,250,-250,250,250,-250,250);
     loadPixels();
 }
 
 function HSVV(){
-
+    lumaShader.setUniform('greyscale',true);
+    lumaShader.setUniform('val',true);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('avg',false);
+    lumaShader.setUniform('texture',baseimg);
+    quad(-250,-250,250,-250,250,250,-250,250);
+    loadPixels();
 }
 
 function HSLL(){
-
+    lumaShader.setUniform('greyscale',true);
+    lumaShader.setUniform('lum',true);
+    lumaShader.setUniform('avg',false);
+    lumaShader.setUniform('val',false);
+    lumaShader.setUniform('texture',baseimg);
+    quad(-250,-250,250,-250,250,250,-250,250);
+    loadPixels();
 }
 
 function average(){
-    lumaShader.setUniform('greyimg', true);
+    lumaShader.setUniform('greyscale',true);
+    lumaShader.setUniform('avg',true);
+    lumaShader.setUniform('lum',false);
+    lumaShader.setUniform('val',false);
+    lumaShader.setUniform('texture',baseimg);
+    quad(-250,-250,250,-250,250,250,-250,250);
+    loadPixels();
 }
