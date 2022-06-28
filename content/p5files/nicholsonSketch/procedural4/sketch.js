@@ -6,7 +6,7 @@ let frames2=0.5;
 
 function preload() {
   // shader adapted from here: https://thebookofshaders.com/09/
-  truchetShader = readShader('/showcasevc/p5files/nicholsonSketch/procedural/truchet.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
+  truchetShader = readShader('/showcasevc/p5files/nicholsonSketch/procedural4/truchet.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
 }
 
 function setup() {

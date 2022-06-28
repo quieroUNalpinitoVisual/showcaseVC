@@ -13,6 +13,8 @@ En el caso de mosaicos Truchet, donde un solo elemento de diseño se puede prese
 
 Al cambiar el patrón entre mosaicos, es posible construir un conjunto infinito de diseños complejos.
 
+oprima cualquier tecla para reiniciar:
+
 {{< p5-iframe ver="1.4.1" sketch="/showcasevc/p5files/nicholsonSketch/procedural/sketch.js" lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" lib2="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="440" height="440" >}}
 
 ### **Implementación**
@@ -165,3 +167,13 @@ Asi logramos que el cambio de textura sea dinamico segun el tiempo.
           pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
         }
 {{< /expand >}}
+
+
+
+### **Conclusiones:**
+
+- Como podemos ver en la animación cuando pasa el tiempo la textura pasa a ser mas detallada ya que las celdas son cada vez mas pequeñas, sin embargo sigue siendo fluida debido a que se utilizan shaders.
+
+- Las texturas pueden llegas a ser cada vez mas realistas sin ocupar tantos recursos de procesamiento locales.
+
+
