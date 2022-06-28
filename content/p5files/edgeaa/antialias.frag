@@ -33,8 +33,6 @@ void main() {
   for (int i = 0; i < 9; i++) {
     sum += rgba[i];
   }
-
-  //gl_FragColor = vec4(sum.rgb/9, 1.0); 
   
   if( (edgepoint.r > 0.2 ) && (edgepoint.g > 0.2 ) && (edgepoint.b > 0.2 )){
     gl_FragColor = sum*vec4(1.0/9.0);
