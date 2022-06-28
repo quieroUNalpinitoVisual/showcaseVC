@@ -1,5 +1,4 @@
 let basevid;
-let rstimg;
 let maskShader;
 let isVidReady = false;
 let dosom = false;

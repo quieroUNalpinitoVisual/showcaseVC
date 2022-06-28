@@ -6,7 +6,6 @@ uniform vec2 texOffset;
 uniform float mask[9];
 uniform bool dosom;
 
-// we need our interpolated tex coord
 varying vec2 texcoords2;
 
 void main() {
