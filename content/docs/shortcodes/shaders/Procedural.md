@@ -15,65 +15,21 @@ Al cambiar el patrón entre mosaicos, es posible construir un conjunto infinito 
 
 {{< p5-iframe ver="1.4.1" sketch="/showcasevc/p5files/nicholsonSketch/procedural/sketch.js" lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" lib2="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" width="440" height="440" >}}
 
-{{< expand sketch.js >}}
+### **Implementación**
 
+Le damos a cada celda un numero indice:
+   
 
-let pg;
-let truchetShader;
-let frames=0;
-let frames2=0.5;
+    //      |
+    //  2   |   3
+    //      |
+    //--------------
+    //      |
+    //  0   |   1
+    //      |
 
-function preload() {
-  // shader adapted from here: https://thebookofshaders.com/09/
-  truchetShader = readShader('/showcasevc/p5files/nicholsonSketch/procedural/truchet.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
-}
-
-function setup() {
-  createCanvas(400, 400, WEBGL);
-  // create frame buffer object to render the procedural texture
-  pg = createGraphics(400, 400, WEBGL);
-  textureMode(NORMAL);
-  noStroke();
-  pg.noStroke();
-  pg.textureMode(NORMAL);
-  // use truchetShader to render onto pg
-  pg.shader(truchetShader);
-  // emitResolution, see:
-  // https://github.com/VisualComputing/p5.treegl#macros
-  pg.emitResolution(truchetShader);
-  // https://p5js.org/reference/#/p5.Shader/setUniform
-  truchetShader.setUniform('u_zoom', 3);
-  // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
-  pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
-  // set pg as texture
-  texture(pg);
-}
-
-function draw() {
-  background(33);
-  
-  orbitControl();
-  rotateZ(frames * 0.005);
-  rotateX(frames * 0.005);
-  rotateY(frames * 0.005);
-
-  truchetShader.setUniform('u_zoom', int(map(frames2, 0, width, 1, 30)));
-  pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
-  frames++;
-  frames2 = frames2 + 0.5;
-  
-  sphere(150,200);
-}
-
-function mouseMoved() {
-  // https://p5js.org/reference/#/p5.Shader/setUniform
-  truchetShader.setUniform('u_zoom', int(map(mouseX, 0, width, 1, 30)));
-  // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
-  pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
-}
-
-{{< /expand >}}
-
+Aplicamos el color intercalado, sea en indices pares o en indices impares. y luego rotamos o asignamos celdas 
+segun queramos.
 
 {{< expand truchet.frag >}}
 
@@ -107,19 +63,7 @@ vec2 rotateTilePattern(vec2 _st){
     //  Scale the coordinate system by 2x2
     _st *= 2.0;
 
-    //  Give each cell an index number
-    //  according to its position
-    float index = 0.0;
-    index += step(1., mod(_st.x,2.0));
-    index += step(1., mod(_st.y,2.0))*2.0;
-
-    //      |
-    //  2   |   3
-    //      |
-    //--------------
-    //      |
-    //  0   |   1
-    //      |
+    
 
     // Make each cell between 0.0 - 1.0
     _st = fract(_st);
@@ -161,10 +105,11 @@ void main (void) {
 }
 
 {{< /expand >}}
-### **Implementación**
 
-#### sketch.js
-{{< expand >}}
+En el sketch vamos a cambiar los tamaños de las celdas en cada frame y llamamos al truchet.frag a medida que cambia el frame.
+Asi logramos que el cambio de textura sea dinamico segun el tiempo.
+
+{{< expand sketch.js>}}
 
         let pg;
         let truchetShader;
