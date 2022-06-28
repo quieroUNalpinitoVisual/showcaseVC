@@ -1,7 +1,8 @@
+
 let pg;
 let truchetShader;
 let frames=0;
-let frames2=100;
+let frames2=0.5;
 
 function preload() {
   // shader adapted from here: https://thebookofshaders.com/09/
@@ -37,12 +38,12 @@ function draw() {
   rotateX(frames * 0.005);
   rotateY(frames * 0.005);
 
-  truchetShader.setUniform('u_zoom', int(map(frames2*0.1, 0, width, 1, 30)));
+  truchetShader.setUniform('u_zoom', int(map(frames2, 0, width, 1, 30)));
   pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
   frames++;
-  frames2 = frames2 + 2;
+  frames2 = frames2 + 0.5;
   
-  sphere(100,200);
+  sphere(150,200);
 }
 
 function mouseMoved() {
