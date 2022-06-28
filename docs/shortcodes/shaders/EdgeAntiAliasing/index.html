@@ -1,9 +1,7 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Edge Anti Aliasing # Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders.
-Pruebas del Algoritmo # Controles # Haz click y presiona una de las siguientes teclas:
-⬆️ Resetear ⬅️ Aplicar Máscara de Ridge ➡️ Edge Anti Aliasing "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content=" Edge Anti Aliasing # Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders.
-Pruebas del Algoritmo # Controles # Haz click y presiona una de las siguientes teclas:
-⬆️ Resetear ⬅️ Aplicar Máscara de Ridge ➡️ Edge Anti Aliasing "><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/shaders/EdgeAntiAliasing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T18:30:55-05:00"><title>Edge Anti Aliasing | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
-<script defer src=/showcasevc/en.search.min.68255f84c8101d3b797d2c0da6ef60bb87b885d4700012da330dab753bf76599.js integrity="sha256-aCVfhMgQHTt5fSwNpu9gu4e4hdRwABLaMw2rdTv3ZZk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Edge Anti Aliasing # Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders. Esta sección es una continuación de anteriores entregas en las cuales ya habiamos tratado el tema de mascaras de convolución mediante software y sus efectos en la detección de bordes ademas de nuestra entrega acerca de los algoritmos de Super Sampling.
+Pruebas del Algoritmo # Controles # Haz click y presiona una de las siguientes teclas:"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Edge Anti Aliasing # Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders. Esta sección es una continuación de anteriores entregas en las cuales ya habiamos tratado el tema de mascaras de convolución mediante software y sus efectos en la detección de bordes ademas de nuestra entrega acerca de los algoritmos de Super Sampling.
+Pruebas del Algoritmo # Controles # Haz click y presiona una de las siguientes teclas:"><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/shaders/EdgeAntiAliasing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T19:10:48-05:00"><title>Edge Anti Aliasing | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
+<script defer src=/showcasevc/en.search.min.1a0b6005fd61f7d563ed3fb1265eafc67098e654298229ca556e710cce018a42.js integrity="sha256-GgtgBf1h99Vj7T+xJl6vxnCY5lQpginKVW5xDM4BikI=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcasevc/><span>quieroUNalpinitoVisual</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-15b587266f7e9455acb5cc0e2d3ba030 class=toggle>
 <label for=section-15b587266f7e9455acb5cc0e2d3ba030 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Antialiasing/>Antialiasing</a></label><ul><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingLab/>Antialiasing Lab</a></li><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingRes/>Antialiasing Res</a></li></ul></li><li><input type=checkbox id=section-2122fdcffebe01fd456e0888c104224e class=toggle>
 <label for=section-2122fdcffebe01fd456e0888c104224e class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Interactions-3D/>Interactions 3 D</a></label><ul></ul></li><li><input type=checkbox id=section-9765ec9f2fa63ff0746715996222150b class=toggle>
@@ -12,11 +10,10 @@ Pruebas del Algoritmo # Controles # Haz click y presiona una de las siguientes t
 <label for=section-d95dc5d36ab28c1f4c64829f0b016347 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/terrain/>Terrain</a></label><ul><li><a href=/showcasevc/docs/shortcodes/terrain/terrain1/>Terrain1</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain2/>Terrain2</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain3/>Terrain3</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrainRes/>Terrain Res</a></li></ul></li><li><input type=checkbox id=section-7346d9061846b999f0e822a45cd24357 class=toggle>
 <label for=section-7346d9061846b999f0e822a45cd24357 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Transformations/>Transformations</a></label><ul><li><a href=/showcasevc/docs/shortcodes/Transformations/rubikcube/>Rubikcube</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcasevc/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Edge Anti Aliasing</strong>
-<label for=toc-control><img src=/showcasevc/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#edge-anti-aliasing>Edge Anti Aliasing</a><ul><li><ul><li><a href=#pruebas-del-algoritmo><strong>Pruebas del Algoritmo</strong></a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=edge-anti-aliasing>Edge Anti Aliasing
-<a class=anchor href=#edge-anti-aliasing>#</a></h1><p>Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders.</p><h3 id=pruebas-del-algoritmo><strong>Pruebas del Algoritmo</strong>
-<a class=anchor href=#pruebas-del-algoritmo>#</a></h3><h4 id=controles>Controles
-<a class=anchor href=#controles>#</a></h4><p>Haz click y presiona una de las siguientes teclas:</p><pre><code>⬆️ Resetear
-⬅️ Aplicar Máscara de Ridge
+<label for=toc-control><img src=/showcasevc/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#edge-anti-aliasing>Edge Anti Aliasing</a><ul><li><a href=#pruebas-del-algoritmo><strong>Pruebas del Algoritmo</strong></a><ul><li></li></ul></li><li><a href=#implementación>Implementación</a><ul><li></li></ul></li><li><a href=#resultados>Resultados</a></li><li><a href=#conclusiones>Conclusiones</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=edge-anti-aliasing>Edge Anti Aliasing
+<a class=anchor href=#edge-anti-aliasing>#</a></h1><p>Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders. Esta sección es una continuación de anteriores entregas en las cuales ya habiamos tratado el tema de mascaras de convolución mediante software y sus efectos en la detección de bordes ademas de nuestra entrega acerca de los algoritmos de Super Sampling.</p><h2 id=pruebas-del-algoritmo><strong>Pruebas del Algoritmo</strong>
+<a class=anchor href=#pruebas-del-algoritmo>#</a></h2><h4 id=controles>Controles
+<a class=anchor href=#controles>#</a></h4><p>Haz click y presiona una de las siguientes teclas:</p><pre><code>⬅️ Aplicar Máscara de Ridge
 ➡️ Edge Anti Aliasing
 </code></pre><iframe id=edgeaa style=width:530px;height:530px srcdoc="
         <!DOCTYPE html>
@@ -34,5 +31,166 @@ Pruebas del Algoritmo # Controles # Haz click y presiona una de las siguientes t
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/8fefa6de706b93c61e421a98f30d7a9a44a9993c title='Last modified by daniel | June 27, 2022' target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
-<span>June 27, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#edge-anti-aliasing>Edge Anti Aliasing</a><ul><li><ul><li><a href=#pruebas-del-algoritmo><strong>Pruebas del Algoritmo</strong></a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
+      "></iframe><h2 id=implementación>Implementación
+<a class=anchor href=#implementaci%c3%b3n>#</a></h2><p>Para logar implementar lo que haria el algoritmo de Edge AA hicimos uso de dos conjuntos de shaders distintos, uno para poder utilizar la mascara de convolucion correspondiente a Ridge para guardar en un archivo que despues usariamos como insumo para nuestro shader custom basado en mascaras que realiza el suavizado de las texturas mediante promedios de colores en un area de 3x3 circundante al borde solo en los lugares donde el color de la mascara de ridge es muy marcada ( con un valor de 0.2 en todas las componentes de color).</p><h4 id=edgeaajs>edgeaa.js
+<a class=anchor href=#edgeaajs>#</a></h4><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>let baseimg;
+let edgemask;
+let antialias;
+let edgeimg;
+let edged = false;
+
+function preload(){
+    edgemask = readShader(&quot;/showcasevc/p5files/edgeaa/edgemask.frag&quot;,{varyings: Tree.texcoords});
+    antialias = readShader(&quot;/showcasevc/p5files/edgeaa/antialias.frag&quot;,{varyings: Tree.texcoords});
+    baseimg = loadImage('/showcasevc/sketches/mayonesito.jpg');
+    edgeimg = loadImage('/showcasevc/sketches/bordesmayonesito.png');
+}
+
+function setup() {
+    createCanvas(500, 500, WEBGL);
+    noStroke();
+    noLoop();
+    textureMode(NORMAL);
+    loadPixels();
+}
+
+function draw() {
+    background(0);
+    image(baseimg,-250,-250);
+}
+
+function keyPressed () {
+
+    if(keyCode === RIGHT_ARROW){
+        applyAA();
+    }
+    if(keyCode === LEFT_ARROW){
+        applyMask();
+    }
+    if(keyCode === UP_ARROW){
+        resetImg();
+    }
+}
+
+function resetImg(){
+    edged = false;
+    edgemask.setUniform('dosom',false);
+    quad(-250,-250,250,-250,250,250,-250,250);
+}
+
+function applyAA(){
+    if(edged){
+        shader(antialias);
+        antialias.setUniform('textureimg',baseimg);
+        antialias.setUniform('textureedge',edgeimg);
+        antialias.setUniform('texOffset',[1/500,1/500]);
+        quad(-250,-250,250,-250,250,250,-250,250);
+    }
+}
+
+function applyMask(){
+    background(0);
+    shader(edgemask);
+    edgemask.setUniform('dosom',true);
+    edgemask.setUniform('texture',baseimg);
+    edgemask.setUniform('texOffset',[1/500,1/500]);
+    edgemask.setUniform('mask',[-1,-1,-1,-1,8,-1,-1,-1,-1]);
+    quad(-250,-250,250,-250,250,250,-250,250);
+    edged = true;
+}
+</code></pre></div></label></div><h4 id=edgemaskfrag>edgemask.frag
+<a class=anchor href=#edgemaskfrag>#</a></h4><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>precision mediump float;
+
+uniform sampler2D texture;
+uniform vec2 texOffset;
+// holds the 3x3 kernel
+uniform float mask[9];
+uniform bool dosom;
+
+varying vec2 texcoords2;
+
+void main() {
+// 1. Use offset to move along texture space.
+// In this case to find the texcoords of the texel neighbours.
+vec2 tc0 = texcoords2 + vec2(-texOffset.s, -texOffset.t);
+vec2 tc1 = texcoords2 + vec2(         0.0, -texOffset.t);
+vec2 tc2 = texcoords2 + vec2(+texOffset.s, -texOffset.t);
+vec2 tc3 = texcoords2 + vec2(-texOffset.s,          0.0);
+// origin (current fragment texcoords)
+vec2 tc4 = texcoords2 + vec2(         0.0,          0.0);
+vec2 tc5 = texcoords2 + vec2(+texOffset.s,          0.0);
+vec2 tc6 = texcoords2 + vec2(-texOffset.s, +texOffset.t);
+vec2 tc7 = texcoords2 + vec2(         0.0, +texOffset.t);
+vec2 tc8 = texcoords2 + vec2(+texOffset.s, +texOffset.t);
+
+// 2. Sample texel neighbours within the rgba array
+vec4 rgba[9];
+rgba[0] = texture2D(texture, tc0);
+rgba[1] = texture2D(texture, tc1);
+rgba[2] = texture2D(texture, tc2);
+rgba[3] = texture2D(texture, tc3);
+rgba[4] = texture2D(texture, tc4);
+rgba[5] = texture2D(texture, tc5);
+rgba[6] = texture2D(texture, tc6);
+rgba[7] = texture2D(texture, tc7);
+rgba[8] = texture2D(texture, tc8);
+
+// 3. Apply convolution kernel
+vec4 convolution;
+for (int i = 0; i &lt; 9; i++) {
+    convolution += rgba[i]*mask[i];
+}
+
+// 4. Set color from convolution
+gl_FragColor = dosom ? vec4(convolution.rgb, 1.0) : rgba[4]; 
+}
+</code></pre></div></label></div><h4 id=antialiasfrag>antialias.frag
+<a class=anchor href=#antialiasfrag>#</a></h4><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>precision mediump float;
+
+uniform sampler2D textureimg;
+uniform sampler2D textureedge;
+uniform vec2 texOffset;
+// we need our interpolated tex coord
+varying vec2 texcoords2;
+
+void main() {
+vec4 edgepoint = texture2D(textureedge, texcoords2 + vec2(0.0));
+vec2 tc0 = texcoords2 + vec2(-texOffset.s, -texOffset.t);
+vec2 tc1 = texcoords2 + vec2(         0.0, -texOffset.t);
+vec2 tc2 = texcoords2 + vec2(+texOffset.s, -texOffset.t);
+vec2 tc3 = texcoords2 + vec2(-texOffset.s,          0.0);
+vec2 tc4 = texcoords2 + vec2(         0.0,          0.0);
+vec2 tc5 = texcoords2 + vec2(+texOffset.s,          0.0);
+vec2 tc6 = texcoords2 + vec2(-texOffset.s, +texOffset.t);
+vec2 tc7 = texcoords2 + vec2(         0.0, +texOffset.t);
+vec2 tc8 = texcoords2 + vec2(+texOffset.s, +texOffset.t);
+
+vec4 rgba[9];
+rgba[0] = texture2D(textureimg, tc0);
+rgba[1] = texture2D(textureimg, tc1);
+rgba[2] = texture2D(textureimg, tc2);
+rgba[3] = texture2D(textureimg, tc3);
+rgba[4] = texture2D(textureimg, tc4);
+rgba[5] = texture2D(textureimg, tc5);
+rgba[6] = texture2D(textureimg, tc6);
+rgba[7] = texture2D(textureimg, tc7);
+rgba[8] = texture2D(textureimg, tc8);
+
+vec4 sum = vec4(0.0);
+for (int i = 0; i &lt; 9; i++) {
+    sum += rgba[i];
+}
+
+if( (edgepoint.r &gt; 0.2 ) &amp;&amp; (edgepoint.g &gt; 0.2 ) &amp;&amp; (edgepoint.b &gt; 0.2 )){
+    gl_FragColor = sum*vec4(1.0/9.0);
+}else{
+    gl_FragColor = texture2D(textureimg, texcoords2 + vec2(0.0,0.0));
+}
+}
+</code></pre></div></label></div><h2 id=resultados>Resultados
+<a class=anchor href=#resultados>#</a></h2><p><img src=/showcasevc/sketches/comparacionmayonesitos.png alt="Pre AA"></p><p>Como podemos ver en la anterior imagen los colores presentes bajo el ojo pero sobre el pico del pato de la imagen estan intactos, donde no se presentaban bordes. Pero en una zona mas rica en bordes como lo es a la izquierda del ojo y en el ojo mismo nuestro algoritmo realizo el trabajo de suavizado perfectamente para evitar los escalones en cada pixel y tener una imagen menos agreste en los bordes.</p><h2 id=conclusiones>Conclusiones
+<a class=anchor href=#conclusiones>#</a></h2><ul><li>El algoritmo de EdgeAA nos permite mas que una mejor aplicacion del algoritmo de Super Sampling, una versión mas eficiente de esta misma. Esto debido a que la variación que realiza respecto a otros métodos es la no aplicación de forma general a la imagen sino en áreas especificas y con un énfasis que se puede acomodar por el usuario o parametrizador</li><li>el valor de corte de 0.2 en las componentes de color de la imagen de bordes nos permitio una aplicacion aceptable en la imagen sin llegar a los artefactos que se llegan a presentar si realizaramos un corte en 0.5 o en 0.1 por el sobreuso o el poco uso del suavizado.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/c99fe61d75570acaf59f16b4d9cc614bfcb28409 title='Last modified by jsromero98 | June 28, 2022' target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#edge-anti-aliasing>Edge Anti Aliasing</a><ul><li><a href=#pruebas-del-algoritmo><strong>Pruebas del Algoritmo</strong></a><ul><li></li></ul></li><li><a href=#implementación>Implementación</a><ul><li></li></ul></li><li><a href=#resultados>Resultados</a></li><li><a href=#conclusiones>Conclusiones</a></li></ul></li></ul></nav></div></aside></main></body></html>
