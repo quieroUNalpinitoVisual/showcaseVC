@@ -1,0 +1,159 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Offset patterns: # Un ejemplo de un patron compensado (offset patterns) es un muro de ladrillos, donde por cada fila alterna tenemos un ladrillo desplazado en x.
+Para simular esto lo que hacemos es saber en que fial desplazamos el ladrillo, esto lo logramos verificando si estamos en una fila par o una impar con la función mod() of 2.0: y = mod(x,2.0).
+oprima cualquier tecla para reiniciar:
+Implementación: # En la línea 15 del código del fragment es donde estamos usando la función para &ldquo;detectar&rdquo; filas impares y darles un desplazamiento de media unidad en x."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Offset patterns: # Un ejemplo de un patron compensado (offset patterns) es un muro de ladrillos, donde por cada fila alterna tenemos un ladrillo desplazado en x.
+Para simular esto lo que hacemos es saber en que fial desplazamos el ladrillo, esto lo logramos verificando si estamos en una fila par o una impar con la función mod() of 2.0: y = mod(x,2.0).
+oprima cualquier tecla para reiniciar:
+Implementación: # En la línea 15 del código del fragment es donde estamos usando la función para &ldquo;detectar&rdquo; filas impares y darles un desplazamiento de media unidad en x."><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/shaders/procedural2/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-28T01:48:31-05:00"><title>Procedural2 | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
+<script defer src=/showcasevc/en.search.min.237c5184061a4e64f0382984f4adba1ac0214473db4ba839d7c23ea263f8052c.js integrity="sha256-I3xRhAYaTmTwOCmE9K26GsAhRHPbS6g518I+omP4BSw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcasevc/><span>quieroUNalpinitoVisual</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-15b587266f7e9455acb5cc0e2d3ba030 class=toggle>
+<label for=section-15b587266f7e9455acb5cc0e2d3ba030 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Antialiasing/>Antialiasing</a></label><ul><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingLab/>Antialiasing Lab</a></li><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingRes/>Antialiasing Res</a></li></ul></li><li><input type=checkbox id=section-2122fdcffebe01fd456e0888c104224e class=toggle>
+<label for=section-2122fdcffebe01fd456e0888c104224e class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Interactions-3D/>Interactions 3 D</a></label><ul></ul></li><li><input type=checkbox id=section-9765ec9f2fa63ff0746715996222150b class=toggle>
+<label for=section-9765ec9f2fa63ff0746715996222150b class="flex justify-between"><a href=/showcasevc/docs/shortcodes/masking/>Masking</a></label><ul><li><a href=/showcasevc/docs/shortcodes/masking/maskingLab/>Masking Lab</a></li><li><a href=/showcasevc/docs/shortcodes/masking/maskingRes/>Masking Res</a></li></ul></li><li><a href=/showcasevc/docs/shortcodes/members/>Members</a></li><li><input type=checkbox id=section-6d6445ed16f829ce6720abb33c55105e class=toggle checked>
+<label for=section-6d6445ed16f829ce6720abb33c55105e class="flex justify-between"><a href=/showcasevc/docs/shortcodes/shaders/>Shaders</a></label><ul><li><a href=/showcasevc/docs/shortcodes/shaders/EdgeAntiAliasing/>Edge Anti Aliasing</a></li><li><a href=/showcasevc/docs/shortcodes/shaders/imageProcessing/>Image Processing</a></li><li><a href=/showcasevc/docs/shortcodes/shaders/Procedural/>Procedural</a></li><li><a href=/showcasevc/docs/shortcodes/shaders/procedural2/ class=active>Procedural2</a></li><li><a href=/showcasevc/docs/shortcodes/shaders/texturing/>Texturing</a></li></ul></li><li><input type=checkbox id=section-d95dc5d36ab28c1f4c64829f0b016347 class=toggle>
+<label for=section-d95dc5d36ab28c1f4c64829f0b016347 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/terrain/>Terrain</a></label><ul><li><a href=/showcasevc/docs/shortcodes/terrain/terrain1/>Terrain1</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain2/>Terrain2</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain3/>Terrain3</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrainRes/>Terrain Res</a></li></ul></li><li><input type=checkbox id=section-7346d9061846b999f0e822a45cd24357 class=toggle>
+<label for=section-7346d9061846b999f0e822a45cd24357 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Transformations/>Transformations</a></label><ul><li><a href=/showcasevc/docs/shortcodes/Transformations/rubikcube/>Rubikcube</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcasevc/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Procedural2</strong>
+<label for=toc-control><img src=/showcasevc/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#offset-patterns>Offset patterns:</a><ul><li><a href=#implementación>Implementación:</a></li><li><a href=#conclusiones><strong>Conclusiones:</strong></a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h2 id=offset-patterns>Offset patterns:
+<a class=anchor href=#offset-patterns>#</a></h2><p>Un ejemplo de un patron compensado (offset patterns) es un muro de ladrillos, donde por cada fila alterna tenemos un ladrillo desplazado en x.</p><p>Para simular esto lo que hacemos es saber en que fial desplazamos el ladrillo, esto lo logramos verificando si estamos en una fila par o una impar con la función mod() of 2.0: y = mod(x,2.0).</p><p>oprima cualquier tecla para reiniciar:</p><iframe id=sketch style=width:440px;height:440px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js></script>
+             <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script> 
+             <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script> 
+            
+            
+            
+            <script src=/showcasevc/p5files/nicholsonSketch/procedural2/sketch.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h3 id=implementación>Implementación:
+<a class=anchor href=#implementaci%c3%b3n>#</a></h3><p>En la línea 15 del código del fragment es donde estamos usando la función para &ldquo;detectar&rdquo; filas impares y darles un desplazamiento de media unidad en x.</p><p>En la línea 33 se amplía la relación de aspecto del sistema de coordenadas para imitar el aspecto de un &ldquo;ladrillo moderno&rdquo;.</p><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>truchet.frag</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>// Author @patriciogv ( patriciogonzalezvivo.com ) - 2015
+
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform float u_time;
+uniform float u_zoom;
+
+vec2 brickTile(vec2 _st, float _zoom) {
+
+    _st *= u_zoom;
+
+    // Here is where the offset is happening
+    _st.x += step(1., mod(_st.y,2.0)) * 0.5;
+
+    return fract(_st);
+}
+
+float box(vec2 _st, vec2 _size){
+
+    _size = vec2(0.5)-_size*0.5;
+    vec2 uv = smoothstep(_size,_size+vec2(1e-4),_st);
+    uv *= smoothstep(_size,_size+vec2(1e-4),vec2(1.0)-_st);
+    return uv.x*uv.y;
+}
+
+void main(void){
+
+    vec2 st = gl_FragCoord.xy/u_resolution.xy;
+    vec3 color = vec3(0.0);
+
+    // Modern metric brick of 215mm x 102.5mm x 65mm
+    // http://www.jaharrison.me.uk/Brickwork/Sizes.html
+    st /= vec2(2.15,0.65)/1.5;
+
+    // Apply the brick tiling
+    st = brickTile(st,5.0);
+
+    color = vec3(box(st,vec2(0.9)));
+
+    gl_FragColor = vec4(color,1.0);
+}
+</code></pre></div></label></div><p>Podemos agregar una linea que asigne color al sistema de coordenadas asignado a rojo y verde:</p><p>oprima cualquier tecla para reiniciar:</p><iframe id=sketch style=width:440px;height:440px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js></script>
+             <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script> 
+             <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script> 
+            
+            
+            
+            <script src=/showcasevc/p5files/nicholsonSketch/procedural3/sketch.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>truchet.frag</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>// Author @patriciogv ( patriciogonzalezvivo.com ) - 2015
+
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform float u_time;
+uniform float u_zoom;
+
+vec2 brickTile(vec2 _st, float _zoom) {
+
+    _st *= u_zoom;
+
+    // Here is where the offset is happening
+    _st.x += step(1., mod(_st.y,2.0)) * 0.5;
+
+    return fract(_st);
+}
+
+float box(vec2 _st, vec2 _size){
+
+    _size = vec2(0.5)-_size*0.5;
+    vec2 uv = smoothstep(_size,_size+vec2(1e-4),_st);
+    uv *= smoothstep(_size,_size+vec2(1e-4),vec2(1.0)-_st);
+    return uv.x*uv.y;
+}
+
+void main(void){
+
+    vec2 st = gl_FragCoord.xy/u_resolution.xy;
+    vec3 color = vec3(0.0);
+
+    // Modern metric brick of 215mm x 102.5mm x 65mm
+    // http://www.jaharrison.me.uk/Brickwork/Sizes.html
+    st /= vec2(2.15,0.65)/1.5;
+
+    // Apply the brick tiling
+    st = brickTile(st,5.0);
+
+    color = vec3(box(st,vec2(0.9)));
+    color = vec3(st,0.0);
+    gl_FragColor = vec4(color,1.0);
+}
+</code></pre></div></label></div><p>O incluso aplicarlo a una forma diferente:</p><p>oprima cualquier tecla para reiniciar:</p><iframe id=sketch style=width:440px;height:440px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js></script>
+             <script src=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js></script> 
+             <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script> 
+            
+            
+            
+            <script src=/showcasevc/p5files/nicholsonSketch/procedural4/sketch.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h3 id=conclusiones><strong>Conclusiones:</strong>
+<a class=anchor href=#conclusiones>#</a></h3><ul><li><p>Este comportamiento lo podemos ejecutar con columnas , con columans y filas al tiempo y hacer que se muevan sincronicamente en diferentes direcciones, manteniendo el deplazamiento de coordenadas.</p></li><li><p>En esta pagian hay 3 sketch con textura en iguras 3d y todas se ejecutan fluidamente sin consumir demasiados recursos.</p></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/0aa7a7851f1178bf3a5717ff4397b99b08f0806e title='Last modified by nsochoaga | June 28, 2022' target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#offset-patterns>Offset patterns:</a><ul><li><a href=#implementación>Implementación:</a></li><li><a href=#conclusiones><strong>Conclusiones:</strong></a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
