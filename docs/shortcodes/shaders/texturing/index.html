@@ -1,7 +1,7 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Texturing # Desarrollo de los Ejercicios # Controles 🕹️ # Haz click y presiona una de las siguientes teclas:
-⬅️ Resetear ⬇️ HSL ( L ) ⬆️ HSV ( V ) ➡️ Promedio Implementación # Promedio RGB # HSV V # HSL L # "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content=" Texturing # Desarrollo de los Ejercicios # Controles 🕹️ # Haz click y presiona una de las siguientes teclas:
-⬅️ Resetear ⬇️ HSL ( L ) ⬆️ HSV ( V ) ➡️ Promedio Implementación # Promedio RGB # HSV V # HSL L # "><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/shaders/texturing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T20:32:04-05:00"><title>Texturing | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
-<script defer src=/showcasevc/en.search.min.7a07ac45ef6d02de8a57948b64685dc4ed2fb950dd038ee39212f615c55018bc.js integrity="sha256-egesRe9tAt6KV5SLZGhdxO0vuVDdA47jkhL2FcVQGLw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Texturing # Desarrollo de los Ejercicios # Controles 🕹️ # Haz click y presiona una de las siguientes teclas:
+⬅️ Resetear ⬇️ HSL ( L ) ⬆️ HSV ( V ) ➡️ Promedio Implementación # Promedio RGB # Expand ↕ if(avg){ return 0.3333 * texel.r + 0.3333 * texel.g + 0.3333 * texel.b + 0.1; } HSV V # Teniendo en cuenta que el value del HSV corresponde al máximo entre los valores del RGB, entonces"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Texturing # Desarrollo de los Ejercicios # Controles 🕹️ # Haz click y presiona una de las siguientes teclas:
+⬅️ Resetear ⬇️ HSL ( L ) ⬆️ HSV ( V ) ➡️ Promedio Implementación # Promedio RGB # Expand ↕ if(avg){ return 0.3333 * texel.r + 0.3333 * texel.g + 0.3333 * texel.b + 0.1; } HSV V # Teniendo en cuenta que el value del HSV corresponde al máximo entre los valores del RGB, entonces"><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/shaders/texturing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T21:13:53-05:00"><title>Texturing | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
+<script defer src=/showcasevc/en.search.min.43c0da215c262eb406df22bbfdb044c2d4a0cec5e656a7ccef4432ec198189b2.js integrity="sha256-Q8DaIVwmLrQG3yK7/bBEwtSgzsXmVqfM70Qy7BmBibI=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcasevc/><span>quieroUNalpinitoVisual</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-15b587266f7e9455acb5cc0e2d3ba030 class=toggle>
 <label for=section-15b587266f7e9455acb5cc0e2d3ba030 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Antialiasing/>Antialiasing</a></label><ul><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingLab/>Antialiasing Lab</a></li><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingRes/>Antialiasing Res</a></li></ul></li><li><input type=checkbox id=section-2122fdcffebe01fd456e0888c104224e class=toggle>
 <label for=section-2122fdcffebe01fd456e0888c104224e class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Interactions-3D/>Interactions 3 D</a></label><ul></ul></li><li><input type=checkbox id=section-9765ec9f2fa63ff0746715996222150b class=toggle>
@@ -35,7 +35,41 @@
         </html>
       "></iframe><h3 id=implementación><strong>Implementación</strong>
 <a class=anchor href=#implementaci%c3%b3n>#</a></h3><h4 id=promedio-rgb>Promedio RGB
-<a class=anchor href=#promedio-rgb>#</a></h4><div style=width:100%;height:0;position:relative;padding-bottom:56.25%><iframe src="https://streamable.com/e/lf0l0i?autoplay=1" frameborder=0 width=100% height=100% allowfullscreen allow=autoplay style=width:100%;height:100%;position:absolute;left:0;top:0;overflow:hidden></iframe></div><h4 id=hsv-v>HSV V
-<a class=anchor href=#hsv-v>#</a></h4><div style=width:100%;height:0;position:relative;padding-bottom:56.25%><iframe src="https://streamable.com/e/q7aemw?autoplay=1" frameborder=0 width=100% height=100% allowfullscreen allow=autoplay style=width:100%;height:100%;position:absolute;left:0;top:0;overflow:hidden></iframe></div><h4 id=hsl-l>HSL L
-<a class=anchor href=#hsl-l>#</a></h4><div style=width:100%;height:0;position:relative;padding-bottom:56.25%><iframe src="https://streamable.com/e/ij7tot?autoplay=1" frameborder=0 width=100% height=100% allowfullscreen allow=autoplay style=width:100%;height:100%;position:absolute;left:0;top:0;overflow:hidden></iframe></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/d81fd44b5cfd28660b818f01227e83766936b5c4 title='Last modified by daniel | June 28, 2022' target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
+<a class=anchor href=#promedio-rgb>#</a></h4><div style=width:100%;height:0;position:relative;padding-bottom:56.25%><iframe src="https://streamable.com/e/lf0l0i?autoplay=1" frameborder=0 width=100% height=100% allowfullscreen allow=autoplay style=width:100%;height:100%;position:absolute;left:0;top:0;overflow:hidden></iframe></div><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>if(avg){
+  return 0.3333 * texel.r + 0.3333 * texel.g + 0.3333 * texel.b + 0.1;
+}
+</code></pre></div></label></div><h4 id=hsv-v>HSV V
+<a class=anchor href=#hsv-v>#</a></h4><p>Teniendo en cuenta que el <em>value</em> del HSV corresponde al máximo entre los valores del RGB, entonces</p><div style=width:100%;height:0;position:relative;padding-bottom:56.25%><iframe src="https://streamable.com/e/q7aemw?autoplay=1" frameborder=0 width=100% height=100% allowfullscreen allow=autoplay style=width:100%;height:100%;position:absolute;left:0;top:0;overflow:hidden></iframe></div><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>if(val){
+  if ( texel.r &gt; texel.g &amp;&amp; texel.r &gt; texel.b){
+    return texel.r * 1.0 + 0.1;
+  } else if (texel.g &gt; texel.r &amp;&amp; texel.g &gt; texel.b){
+    return texel.g * 1.0 + 0.1;
+  } else if (texel.b &gt; texel.r &amp;&amp; texel.b &gt; texel.g) {
+    return texel.b * 1.0 + 0.1;
+  }
+}
+</code></pre></div></label></div><h4 id=hsl-l>HSL L
+<a class=anchor href=#hsl-l>#</a></h4><p>A partir de los valores RGB se puede obtener el <em>lightness</em> a partir de el valor medio de estos, es decir:</p><div style=width:100%;height:0;position:relative;padding-bottom:56.25%><iframe src="https://streamable.com/e/ij7tot?autoplay=1" frameborder=0 width=100% height=100% allowfullscreen allow=autoplay style=width:100%;height:100%;position:absolute;left:0;top:0;overflow:hidden></iframe></div><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>if(lum){
+  float max = 0.0;
+  float min = 0.0;
+  if ( texel.r &gt; texel.g &amp;&amp; texel.r &gt; texel.b){
+    max = texel.r;
+  } else if (texel.g &gt; texel.r &amp;&amp; texel.g &gt; texel.b){
+    max = texel.g;
+  } else if (texel.b &gt; texel.r &amp;&amp; texel.b &gt; texel.g) {
+    max = texel.b;
+  }
+  if ( texel.r &lt; texel.g &amp;&amp; texel.r &lt; texel.b){
+    min = texel.r;
+  } else if (texel.g &lt; texel.r &amp;&amp; texel.g &lt; texel.b){
+    min = texel.g;
+  } else if (texel.b &lt; texel.r &amp;&amp; texel.b &lt; texel.g) {
+    min = texel.b;
+  }
+  return max * 0.5 + min * 0.5 + 0.1;
+}
+</code></pre></div></label></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/dfa6c47fd905e03753d6713766eb69db16fb0507 title='Last modified by daniel | June 28, 2022' target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
 <span>June 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#texturing>Texturing</a><ul><li><ul><li><a href=#desarrollo-de-los-ejercicios><strong>Desarrollo de los Ejercicios</strong></a></li><li><a href=#implementación><strong>Implementación</strong></a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
