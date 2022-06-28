@@ -2,8 +2,8 @@
 
 Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders. Esta sección es una continuación de anteriores entregas en las cuales ya habiamos tratado el tema de mascaras de convolución mediante software y sus efectos en la detección de bordes ademas de nuestra entrega acerca de los algoritmos de Super Sampling.
 
-## **Pruebas del Algoritmo**
-#### Controles
+### **Pruebas del Algoritmo**
+#### Controles 🕹️
 Haz click y presiona una de las siguientes teclas:
 
 <!--    ⬆️ Resetear -->

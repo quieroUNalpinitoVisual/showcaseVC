@@ -1,4 +1,7 @@
 # Procedural Texturing
+En esta sección aplicamos el ejemplo visto en clase desde el cual se generaba una textura proceduralmente aplicando el patrón *truchet tiles*, pero en este caso, sobre un objeto distinto.
+
+### **Desarrollo del Ejercicio**
 
 El objetivo de la texturización procesal es generar una textura mediante un algoritmo de tal manera que el resultado se pueda asignar a una forma como textura. La textura de procedimiento requiere el uso de un objeto de búfer de cuadro que en p5.js se implementa como un objeto p5.Graphics.
 
@@ -157,4 +160,63 @@ void main (void) {
     gl_FragColor = vec4(vec3(step(st.x,st.y)),1.0);
 }
 
+{{< /expand >}}
+### **Implementación**
+
+#### sketch.js
+{{< expand >}}
+
+        let pg;
+        let truchetShader;
+        let frames=0;
+        let frames2=100;
+
+        function preload() {
+          // shader adapted from here: https://thebookofshaders.com/09/
+          truchetShader = readShader('/showcasevc/p5files/nicholsonSketch/procedural/truchet.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
+        }
+
+        function setup() {
+          createCanvas(400, 400, WEBGL);
+          // create frame buffer object to render the procedural texture
+          pg = createGraphics(400, 400, WEBGL);
+          textureMode(NORMAL);
+          noStroke();
+          pg.noStroke();
+          pg.textureMode(NORMAL);
+          // use truchetShader to render onto pg
+          pg.shader(truchetShader);
+          // emitResolution, see:
+          // https://github.com/VisualComputing/p5.treegl#macros
+          pg.emitResolution(truchetShader);
+          // https://p5js.org/reference/#/p5.Shader/setUniform
+          truchetShader.setUniform('u_zoom', 3);
+          // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
+          pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+          // set pg as texture
+          texture(pg);
+        }
+
+        function draw() {
+          background(33);
+          
+          orbitControl();
+          rotateZ(frames * 0.005);
+          rotateX(frames * 0.005);
+          rotateY(frames * 0.005);
+
+          truchetShader.setUniform('u_zoom', int(map(frames2*0.1, 0, width, 1, 30)));
+          pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+          frames++;
+          frames2 = frames2 + 2;
+          
+          sphere(100,200);
+        }
+
+        function mouseMoved() {
+          // https://p5js.org/reference/#/p5.Shader/setUniform
+          truchetShader.setUniform('u_zoom', int(map(mouseX, 0, width, 1, 30)));
+          // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
+          pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+        }
 {{< /expand >}}
