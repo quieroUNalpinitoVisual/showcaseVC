@@ -1,7 +1,9 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Image Processing # Desarrollo de los Ejercicios # Controles # Haz click y presiona una de las siguientes teclas:
-⬅️ Resetear ➡️ Aplicar Máscara de Ridge Imagen # Video # "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content=" Image Processing # Desarrollo de los Ejercicios # Controles # Haz click y presiona una de las siguientes teclas:
-⬅️ Resetear ➡️ Aplicar Máscara de Ridge Imagen # Video # "><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/shaders/imageProcessing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T18:14:15-05:00"><title>Image Processing | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
-<script defer src=/showcasevc/en.search.min.6fed83a311a4ca6a1ddb4c6290a3511b5647a4b5caffe9e2d16a2f5a137003f0.js integrity="sha256-b+2DoxGkymod20xikKNRG1ZHpLXK/+ni0WovWhNwA/A=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Image Processing # En esta sección tambien vamos a tener como referencia nuestra primera entrega en la sección de masking para afianzar los conceptos y comparar el rendimiento.
+Desarrollo de los Ejercicios # Controles # Haz click y presiona una de las siguientes teclas:
+⬅️ Resetear ➡️ Aplicar Máscara de Ridge Imagen # Video # (puede tardar en cargar unos segundos) Implementación # Imagen # Expand ↕ let baseimg; let rstimg; let maskShader; function preload(){ maskShader = readShader(&#34;/showcasevc/p5files/shadersJohan/mask."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Image Processing # En esta sección tambien vamos a tener como referencia nuestra primera entrega en la sección de masking para afianzar los conceptos y comparar el rendimiento.
+Desarrollo de los Ejercicios # Controles # Haz click y presiona una de las siguientes teclas:
+⬅️ Resetear ➡️ Aplicar Máscara de Ridge Imagen # Video # (puede tardar en cargar unos segundos) Implementación # Imagen # Expand ↕ let baseimg; let rstimg; let maskShader; function preload(){ maskShader = readShader(&#34;/showcasevc/p5files/shadersJohan/mask."><meta property="og:type" content="article"><meta property="og:url" content="https://quieroUNalpinitoVisualvisual.github.io/showcasevc/docs/shortcodes/shaders/imageProcessing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-06-27T19:52:58-05:00"><title>Image Processing | quieroUNalpinitoVisual</title><link rel=manifest href=/showcasevc/manifest.json><link rel=icon href=/showcasevc/favicon.png type=image/x-icon><link rel=stylesheet href=/showcasevc/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/showcasevc/flexsearch.min.js></script>
+<script defer src=/showcasevc/en.search.min.adecaadadcc76bca89d73094e43b2f98dc89672a18b33b05a1de83d171e9f759.js integrity="sha256-reyq2tzHa8qJ1zCU5DsvmNyJZyoYszsFod6D0XHp91k=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcasevc/><span>quieroUNalpinitoVisual</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-15b587266f7e9455acb5cc0e2d3ba030 class=toggle>
 <label for=section-15b587266f7e9455acb5cc0e2d3ba030 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Antialiasing/>Antialiasing</a></label><ul><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingLab/>Antialiasing Lab</a></li><li><a href=/showcasevc/docs/shortcodes/Antialiasing/AntialiasingRes/>Antialiasing Res</a></li></ul></li><li><input type=checkbox id=section-2122fdcffebe01fd456e0888c104224e class=toggle>
 <label for=section-2122fdcffebe01fd456e0888c104224e class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Interactions-3D/>Interactions 3 D</a></label><ul></ul></li><li><input type=checkbox id=section-9765ec9f2fa63ff0746715996222150b class=toggle>
@@ -10,8 +12,8 @@
 <label for=section-d95dc5d36ab28c1f4c64829f0b016347 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/terrain/>Terrain</a></label><ul><li><a href=/showcasevc/docs/shortcodes/terrain/terrain1/>Terrain1</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain2/>Terrain2</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrain3/>Terrain3</a></li><li><a href=/showcasevc/docs/shortcodes/terrain/terrainRes/>Terrain Res</a></li></ul></li><li><input type=checkbox id=section-7346d9061846b999f0e822a45cd24357 class=toggle>
 <label for=section-7346d9061846b999f0e822a45cd24357 class="flex justify-between"><a href=/showcasevc/docs/shortcodes/Transformations/>Transformations</a></label><ul><li><a href=/showcasevc/docs/shortcodes/Transformations/rubikcube/>Rubikcube</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcasevc/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Image Processing</strong>
-<label for=toc-control><img src=/showcasevc/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#image-processing>Image Processing</a><ul><li><ul><li><a href=#desarrollo-de-los-ejercicios><strong>Desarrollo de los Ejercicios</strong></a></li></ul></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=image-processing>Image Processing
-<a class=anchor href=#image-processing>#</a></h1><h3 id=desarrollo-de-los-ejercicios><strong>Desarrollo de los Ejercicios</strong>
+<label for=toc-control><img src=/showcasevc/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#image-processing>Image Processing</a><ul><li><ul><li><a href=#desarrollo-de-los-ejercicios><strong>Desarrollo de los Ejercicios</strong></a></li></ul></li><li><a href=#implementación>Implementación</a><ul><li></li></ul></li><li><a href=#conclusiones>Conclusiones</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=image-processing>Image Processing
+<a class=anchor href=#image-processing>#</a></h1><p>En esta sección tambien vamos a tener como referencia nuestra primera entrega en la sección de masking para afianzar los conceptos y comparar el rendimiento.</p><h3 id=desarrollo-de-los-ejercicios><strong>Desarrollo de los Ejercicios</strong>
 <a class=anchor href=#desarrollo-de-los-ejercicios>#</a></h3><h4 id=controles>Controles
 <a class=anchor href=#controles>#</a></h4><p>Haz click y presiona una de las siguientes teclas:</p><pre><code>⬅️ Resetear
 ➡️ Aplicar Máscara de Ridge
@@ -33,7 +35,7 @@
           </body>
         </html>
       "></iframe><h4 id=video>Video
-<a class=anchor href=#video>#</a></h4><iframe id=videoProc style=width:330px;height:330px srcdoc="
+<a class=anchor href=#video>#</a></h4><p>(puede tardar en cargar unos segundos)<br><iframe id=videoProc style=width:330px;height:330px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -49,5 +51,164 @@
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/ef28d3397e6731d5eb605be2cd3a56a1d09472da title='Last modified by daniel | June 27, 2022' target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
-<span>June 27, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#image-processing>Image Processing</a><ul><li><ul><li><a href=#desarrollo-de-los-ejercicios><strong>Desarrollo de los Ejercicios</strong></a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
+      "></iframe></p><h2 id=implementación>Implementación
+<a class=anchor href=#implementaci%c3%b3n>#</a></h2><h4 id=imagen-1>Imagen
+<a class=anchor href=#imagen-1>#</a></h4><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>let baseimg;
+let rstimg;
+let maskShader;
+
+function preload(){
+    maskShader = readShader(&quot;/showcasevc/p5files/shadersJohan/mask.frag&quot;,{varyings: Tree.texcoords});
+    baseimg = loadImage('/showcasevc/sketches/mayonesito.jpg');
+    rstimg = baseimg;
+}
+
+function setup() {
+    createCanvas(500, 500, WEBGL);
+    noStroke();
+    noLoop();
+    textureMode(NORMAL);
+    loadPixels();
+}
+
+function draw() {
+    background(0);
+    image(rstimg,-250,-250);
+    shader(maskShader);
+    maskShader.setUniform('texture',baseimg);
+    maskShader.setUniform('texOffset',[1/500,1/500]);
+    maskShader.setUniform('mask',[-1,-1,-1,-1,8,-1,-1,-1,-1]);
+    maskShader.setUniform('dosom',false);
+}
+
+function keyPressed () {
+
+    if(keyCode === RIGHT_ARROW){
+        applyMask();
+    }
+    if(keyCode === LEFT_ARROW){
+        resetMask();
+    }
+}
+
+function resetMask(){
+    maskShader.setUniform('dosom',false);
+    quad(-250,-250,250,-250,250,250,-250,250);
+}
+
+function applyMask(){
+    maskShader.setUniform('dosom',true);
+    quad(-250,-250,250,-250,250,250,-250,250);
+}
+</code></pre></div></label></div><h4 id=video-1>Video
+<a class=anchor href=#video-1>#</a></h4><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>let basevid;
+let maskShader;
+let isVidReady = false;
+let dosom = false;
+
+function onVideoLoad(){
+    isVidReady = true;
+}
+
+function preload(){
+    maskShader = readShader(&quot;/showcasevc/p5files/shadersJohan/mask.frag&quot;,{varyings: Tree.texcoords});
+    basevid = createVideo('/showcasevc/sketches/fingers.webm',onVideoLoad());
+    basevid.hide();
+}
+
+function setup() {
+    createCanvas(300, 300, WEBGL);
+    basevid.size(300,300);
+    noStroke();
+}
+
+function draw() {
+    background(0);
+    if(isVidReady){
+        quad(-150,-150,150,-150,150,150,-150,150);
+    }
+    basevid.loop();
+    shader(maskShader);
+    maskShader.setUniform('texture',basevid);
+    maskShader.setUniform('texOffset',[1/300,1/300]);
+    maskShader.setUniform('mask',[-1,-1,-1,-1,8,-1,-1,-1,-1]);
+    maskShader.setUniform('dosom',dosom);
+}
+
+function keyPressed () {
+    if(keyCode === RIGHT_ARROW){
+        applyMask();
+    }
+    if(keyCode === LEFT_ARROW){
+        resetMask();
+    }
+}
+
+function resetMask(){
+    dosom = false;
+    maskShader.setUniform('dosom',dosom);
+    if(isVidReady){
+        quad(-150,-150,150,-150,150,150,-150,150);
+    }
+}
+
+function applyMask(){
+    dosom = true;
+    maskShader.setUniform('dosom',dosom);
+    if(isVidReady){
+        quad(-150,-150,150,-150,150,150,-150,150);
+    }
+}
+</code></pre></div></label></div><h4 id=maskfrag>mask.frag
+<a class=anchor href=#maskfrag>#</a></h4><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>Expand</span>
+<span>↕</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>precision mediump float;
+
+uniform sampler2D texture;
+uniform vec2 texOffset;
+// holds the 3x3 kernel
+uniform float mask[9];
+uniform bool dosom;
+
+// we need our interpolated tex coord
+varying vec2 texcoords2;
+
+void main() {
+// 1. Use offset to move along texture space.
+// In this case to find the texcoords of the texel neighbours.
+vec2 tc0 = texcoords2 + vec2(-texOffset.s, -texOffset.t);
+vec2 tc1 = texcoords2 + vec2(         0.0, -texOffset.t);
+vec2 tc2 = texcoords2 + vec2(+texOffset.s, -texOffset.t);
+vec2 tc3 = texcoords2 + vec2(-texOffset.s,          0.0);
+// origin (current fragment texcoords)
+vec2 tc4 = texcoords2 + vec2(         0.0,          0.0);
+vec2 tc5 = texcoords2 + vec2(+texOffset.s,          0.0);
+vec2 tc6 = texcoords2 + vec2(-texOffset.s, +texOffset.t);
+vec2 tc7 = texcoords2 + vec2(         0.0, +texOffset.t);
+vec2 tc8 = texcoords2 + vec2(+texOffset.s, +texOffset.t);
+
+// 2. Sample texel neighbours within the rgba array
+vec4 rgba[9];
+rgba[0] = texture2D(texture, tc0);
+rgba[1] = texture2D(texture, tc1);
+rgba[2] = texture2D(texture, tc2);
+rgba[3] = texture2D(texture, tc3);
+rgba[4] = texture2D(texture, tc4);
+rgba[5] = texture2D(texture, tc5);
+rgba[6] = texture2D(texture, tc6);
+rgba[7] = texture2D(texture, tc7);
+rgba[8] = texture2D(texture, tc8);
+
+// 3. Apply convolution kernel
+vec4 convolution;
+for (int i = 0; i &lt; 9; i++) {
+    convolution += rgba[i]*mask[i];
+}
+
+// 4. Set color from convolution
+gl_FragColor = dosom ? vec4(convolution.rgb, 1.0) : rgba[4]; 
+}
+</code></pre></div></label></div><h2 id=conclusiones>Conclusiones
+<a class=anchor href=#conclusiones>#</a></h2><ul><li>La aplicacion de máscaras mediante el uso de shaders es notablemente más rapido gracias al uso de la tarjeta gráfica del computador. Esto se puede hacer tangible no solo en la velocidad del proceso, sino que tambien en el hecho de que podemos implementar el mismo shader para imagenes en video y poder realizar el proceso en tiempo real en lugar de tener que esperar aproximadamente 20 segundos +/- 1, a poder realizarlo varias veces por segundo.</li><li>La cantidad de código escrito por nosotros es menor y mas eficiente gracias a las librerias y los shaders que se usaron.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/quieroUNalpinitoVisualVisual/showcasevc//commit/5e6d651730710f6bae9fe4e317ddc8f899133f0b title='Last modified by jsromero98 | June 28, 2022' target=_blank rel=noopener><img src=/showcasevc/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#image-processing>Image Processing</a><ul><li><ul><li><a href=#desarrollo-de-los-ejercicios><strong>Desarrollo de los Ejercicios</strong></a></li></ul></li><li><a href=#implementación>Implementación</a><ul><li></li></ul></li><li><a href=#conclusiones>Conclusiones</a></li></ul></li></ul></nav></div></aside></main></body></html>
