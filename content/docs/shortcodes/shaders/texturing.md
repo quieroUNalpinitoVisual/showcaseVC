@@ -1,4 +1,5 @@
 # Texturing
+En esta sección implementamos otros métodos propuestos para la visualización de la luz o el brillo, haciendo uso del *value* de HSV y *lightness* de HSL.
 
 ### **Desarrollo de los Ejercicios**
 #### Controles 🕹️
@@ -46,6 +47,7 @@ Teniendo en cuenta que el *value* del HSV corresponde al máximo entre los valor
 
 #### HSL L
 A partir de los valores RGB se puede obtener el *lightness* a partir de el valor medio de estos, es decir:
+<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ec4d7f3233b1387bb2aaf0827aaf4e90508d1e76"  />
 
 <div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;"><iframe src="https://streamable.com/e/ij7tot?autoplay=1" frameborder="0" width="100%" height="100%" allowfullscreen allow="autoplay" style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
