@@ -3,7 +3,7 @@
 Seccion de pruebas de el algoritmo propuesto para realizar Edge AA con shaders.
 
 ### **Pruebas del Algoritmo**
-#### Controles
+#### Controles 🕹️
 Haz click y presiona una de las siguientes teclas:
 
     ⬆️ Resetear
