@@ -68,10 +68,11 @@ void main (void) {
 
     // Make more interesting combinations
     st = tile(st,2.0);
-    // st = tile(st,2.0);
+    //st = tile(st,2.0);
     // st = rotate2D(st,-PI*u_time*0.25);
-    // st = rotateTilePattern(st*2.);
+     //st = rotateTilePattern(st*2.);
      //st = rotate2D(st,PI*u_time*0.25);
+     //st = tile(st,2.0);
 
     // step(st.x,st.y) just makes a b&w triangles
     // but you can use whatever design you want.
